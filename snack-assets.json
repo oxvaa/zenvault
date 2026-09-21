@@ -1,0 +1,234 @@
+{
+  "assets/cards/cyan.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/98ae2d30e20ae59da98cbe3f603fedeb",
+    "sha256": "ef960e0832c2a7148902a7c8c8ea7b7935c542e49756082c23b3540b5cdfd4c6"
+  },
+  "assets/cards/lime.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/e26f1b48961e56f382fc4843da5a1e0c",
+    "sha256": "5ac9c27ff778a045fcc315707420012a662d6057eb91d060680a00349da3a6f1"
+  },
+  "assets/cards/pink.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/0bdcce1e6db709a12463b64370668b86",
+    "sha256": "b3216a51f288f7a5583995955bc8b22147e2a93232bc1a517566c1d027d64132"
+  },
+  "assets/cards/orange.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/f0bb4d4e599954d6a10adb936d96333a",
+    "sha256": "3a16d0fac0ac2914f5e5d14db654c2b3245a6ee03c799f624f75b909168ea338"
+  },
+  "assets/cards/gold-scarab.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/2e332d1dc4f3c0eefe590bfdedab9ec9",
+    "sha256": "09df629db0eb3cd77c0a2599cb991358fc1fd56ceffd2164ed08b402f0f99960"
+  },
+  "assets/cards/gold-lion.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/9c9e39064f0dbf20612a1052888f6238",
+    "sha256": "10b8c4906f1a46aebacf501c57d41c862178b8cdb69de70aee6b741bdbdcda8d"
+  },
+  "assets/cards/platinum-wolf.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/ed4c03f07f72879274647308cf17484d",
+    "sha256": "97516be08c8bf75866ce5c031aabe00a55d41c4727af13eb211e80dc25d143de"
+  },
+  "assets/cards/platinum-raven.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/9a6ea6b2bba9a4ea3cf81c69c476d949",
+    "sha256": "3447d358ca1593f7b5d53a4dfe35aa695873c6d0a49ba99a01b56586202ccf77"
+  },
+  "assets/cards/platinum-serpent.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/83705afe567299e0bbfea4dcd94cc9eb",
+    "sha256": "7a9d36cb90cf4ca1e1e64fc69b29bb845fe5f3f886f4b55d4b3c66c86bd55fd6"
+  },
+  "assets/cards/pro-koi.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/ac2db7e175114355f18c5913684900ab",
+    "sha256": "5ac3290dddb5aa097a775c39f2f1472e1efe229a7b85f1ef885c2d3520fb628a"
+  },
+  "assets/cards/pro-tiger.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/28aae0a184451931e3c50e5c1eb47f9b",
+    "sha256": "3bd474b098198c026c322b4eb33e6e9fd2a0e4c97cf22461621bd13f3bd11cfd"
+  },
+  "assets/cards/pro-kitsune.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/59920b5f57b5530e132e0f4050732407",
+    "sha256": "df6ac5cc019f815f7eba7d458e957220705a7ea3f6204f2fc12f99c785690e2b"
+  },
+  "assets/cards/ultra-dragon.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/79979f756bf8a809341529a0b8d713f2",
+    "sha256": "62320745a27c1cd254d5fc9f28448f1497f72eb188072269894273d80510c0ed"
+  },
+  "assets/cards/ultra-phoenix.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/bb9fc13aa5ac55038916edf4bf118649",
+    "sha256": "085c3401d60836c66aa9fb7400114798798cb1c4aee2b22d7b1cfa81ad2c7981"
+  },
+  "assets/cards/ultra-kraken.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/69334763cd6823dfc49275f4c3b9a7bc",
+    "sha256": "436b65cc68c60ad9e377934771d1b3dd2801b768eb7cde2deaa2079f58ac0a37"
+  },
+  "assets/cards/business-falcon.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/86ae14dae16008c1f38deca3d60ae80f",
+    "sha256": "6c6a6518c1718d55c642ebb69c706ef29a478f496b073920191f589dff46aa2d"
+  },
+  "assets/cards/business-panther.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/dc9757fa4ad703ee34b41fea4447a6c3",
+    "sha256": "acf2f32b1da50c0d825d9eaf7c616d825f55cb25fcdbb703587ec441d6629c25"
+  },
+  "assets/cards/business-stag.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/f788e67ad272469b1b80bded4aca115a",
+    "sha256": "30b0f18e62339a70054cecd9ebac881dcc4cebcd130b8fd76ccec6ce724f6190"
+  },
+  "assets/cards/hologram-apex.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/0734bad1da2bb6b830dc39eb6c94fe7d",
+    "sha256": "c2584beb5481674e8f9c2ba2f13af48f0c199c442e3e9dc8f1e7bcd114af9914"
+  },
+  "assets/cards/rolling-loud.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/14b8098dd114b4d4b95115a5a6f2c875",
+    "sha256": "a118bb91c9c799bb030f6c56779a89732088a3772146e70cdf12ed61a0597c03"
+  },
+  "assets/brands/rolling-loud.png": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/df8a3ba9377f3e8ef385339d4129841a",
+    "sha256": "0b2797ca14cd6694facf520e7dba9438ab7fc71668409470c5398f78b061528c"
+  },
+  "assets/cards/unlimited-iconic-blue.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/f1b7f812f93f856388ddbe5f92a4323b",
+    "sha256": "435fb18b0ed33407c1eab9cef0297954d1891d551ecc2a36dd1c0358a525c1a4"
+  },
+  "assets/cards/unlimited-iconic-pink.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/e26c6afdb2075ad094c709e2c01d849f",
+    "sha256": "5594774dceff8d15021bfe841819b827e2791f7f2660a3c3aaa8e6bcf26f69e9"
+  },
+  "assets/cards/unlimited-no-love.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/861784fe650dac5c8e6b7e39dd0ffda0",
+    "sha256": "2cb51ca6e92029098f326283e65c727127628c8c60f738504812a0e7e46b4dbf"
+  },
+  "assets/cards/unlimited-no-time.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/60dbd1cfd32cf6ef7414f6874d68cca8",
+    "sha256": "8158071b20fc2477a1ac428bbc327fd4d910f1c7247f56dd18ac14dc1c47d263"
+  },
+  "assets/cards/unlimited-red-eye.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/cb26e27b41b6312c6f3be5d9d8353731",
+    "sha256": "eafd4494d4557649734ced4dc823bea013930d76d076400b3350b5b5d7a7c17a"
+  },
+  "assets/cards/unlimited-spider.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/7af78200e922e9f188e42539817fc053",
+    "sha256": "823f7b528ae02048dd70514dd183b640474bfea2eee84061b2ae90420706ff55"
+  },
+  "assets/cards/unlimited-star.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/0a295cc3c800ab42cd4126d49f181712",
+    "sha256": "bfea002c29994c664ed17a69e10da84a8fd6398a06c1fbf5f267ab730a0a7e64"
+  },
+  "assets/cards/unlimited-superstar.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/a4c040a8a2f80cbfaebaf2210dcbdd7f",
+    "sha256": "328b4358d6df14fbac5c62eed4231be3639aa6ac08179e64ade39d854a8eba6b"
+  },
+  "assets/cards/unlimited-chrome-stars.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/2232c98a68cce93fb3a587a75f1fc8ac",
+    "sha256": "8b3a6c4c43838e16e8a61e41a562779fa45a65bba2b7bf04cfb787d24e5dcbfd"
+  },
+  "assets/cards/unlimited-ethereal.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/748d30a6271760b603d7ee4da2d9fa1a",
+    "sha256": "4b90469507e3aca23738f356b58c5b7d48dd06cbba9e299819aed1da045540a9"
+  },
+  "assets/cards/unlimited-pink-inferno.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/33202954759ac9f1f66bf75e507a25e2",
+    "sha256": "b2fe5bca57ffab8057a512dc4131993ddad3ce4160edfcd7c358177071b41bea"
+  },
+  "assets/cards/unlimited-redline.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/ebd6e88e974c7b2efdd62a869869bfab",
+    "sha256": "720c2546ee2b2cdb529ab164b9f4febc39e309de978e9d88814b7594d3feabd7"
+  },
+  "assets/brands/netflix.png": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/8562b6565f5ae1db5e4af40d85b4ed2d",
+    "sha256": "131556b654ab66a0d9a394a2c251cc2d852d7aeca75b562d9788b778b95440f5"
+  },
+  "assets/brands/hbo-max.png": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/227661896599ae88dae4d62862a4887f",
+    "sha256": "8982a118387d5508f97c993e2354f927fee5b7fbd69aa44fc66e31b0de6b7534"
+  },
+  "assets/brands/netflix-symbol.png": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/722c9947ccc4a5f9dcf1b554b3e578f7",
+    "sha256": "d2c5760ceb2f46d3cedc6fbc3320708d4caa2bf884af2af8d934343315042962"
+  },
+  "assets/brands/disney-plus.png": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/62ecd55c6c803568a6d58decefe29740",
+    "sha256": "0527a92dde39ae5dbe976741ff296934c2e7d57db8fc4686de5e5f5a1c87cead"
+  },
+  "assets/brands/alza.png": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/7fa1a7f47707f58e2032912100dce06f",
+    "sha256": "979fc8e78286427d4df980aa44652d3846a93e26a233d3681eb99db73bfdad55"
+  },
+  "assets/brands/kaufland.png": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/032007ec711b1fc572d78e0f39a133ae",
+    "sha256": "4369ad36cbca32b45f440b3640f2c0ce502f95e110db93a7c6f982b2574f0a99"
+  },
+  "assets/brands/allegro.png": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/f5beea7cc56f317139ea2e3bd52a4f63",
+    "sha256": "859b924162e73b430a2ec767f43998451ef2f7aec4eb348bb3869273acd38d94"
+  },
+  "assets/cards/max-rose-thorns.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/a3e89b485d10dd76a9c449c430574809",
+    "sha256": "43ad4dcf648c3b7bf51671a3a36cc3f9a92330174eaf22c87862e981e5a4c72b"
+  },
+  "assets/cards/max-thorn-arc.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/37f938188a0c991e9751dd1a3ac22312",
+    "sha256": "fc6795bd110b308f3640d2780edee3208675892d54dc9c69288777928d3948d6"
+  },
+  "assets/cards/max-ghost-wings.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/e9f58bad5d6b6a0042dfa7b587ab43a8",
+    "sha256": "0b0e29a98a58317ba7fd997fc731c8fa477305c43702b6ffcdf17772bcbabd21"
+  },
+  "assets/cards/max-kitty-riot.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/07d0961746ab2383354b41437e00aba9",
+    "sha256": "be2b21c0c2e04cae43bff2f63ea406167063eb370336ea9559d02c797f22174a"
+  },
+  "assets/cards/max-pink-chrome.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/08fa2e0d2c3cbfa47d906dcc508bee64",
+    "sha256": "57046b704cf0ae3d69023cff3102ca50f1788970a22d9258d028f73952a34688"
+  },
+  "assets/cards/max-cobalt-chrome.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/8579857777579dc8a52e1e88016bc42b",
+    "sha256": "a07e49d23b6a2abe5a5818f10e75e483ea85c39a712ea8e2a0317114d3eb8d5e"
+  },
+  "assets/cards/max-ember-blade.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/8f336a1654aad705c6ddf6f2fd435588",
+    "sha256": "069efb5ac047b08214242989c49fd04aae6c923b56ac9a01a159e6f1bf15281a"
+  },
+  "assets/cards/max-hazard.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/60b5aec94ccc1b7b91d9634a9f95d2af",
+    "sha256": "1e36e1ccdacc4839da802a1581d841a2601ae17b863f478507c84d5501014bf7"
+  },
+  "assets/cards/max-stellar.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/a78fcf0267c921457544d442cea37dc8",
+    "sha256": "d85a946da80f4f54a88b8adad4a96c03b0bbb87054e92c69d8c9c0a742051d58"
+  },
+  "assets/cards/max-pink-americana.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/663248efb36d3053f447ca5ebc47bdef",
+    "sha256": "2172ea7c6159c679405b33a89555792ab9c391c0d9374134987f28a7427d02fb"
+  },
+  "assets/cards/max-liquid-gold.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/a5b7cc0d1bec23ec26fefc1366fafcb9",
+    "sha256": "e29c96321854c6a45835c402cf19da942831b1382b3bc9574e1ce75e78c45826"
+  },
+  "assets/cards/max-golden-current.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/4271518cff61a9c63716149eb853813a",
+    "sha256": "857da815a8434b46312ffb3668fcc2acc8e8a9abd7547e949331bc6d5821e61d"
+  },
+  "assets/cards/max-holo-medusa.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/b13cc332c73f69b3493e77d1c326d654",
+    "sha256": "159a4e7cbf0dee3f68a9b256cbf00ccd02dc81abc86cbacc9deb7fa660df5dd3"
+  },
+  "assets/cards/prestige-deep-night.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/26abe2df009cc6755c6e762fe7669de5",
+    "sha256": "2e96591e11ea1f1e83c5cf898c575a0b9d03f0a175409603d58bf8234146ca81"
+  },
+  "assets/cards/prestige-chrome-soul.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/edb0d43ddf94aaece1a9c7e345599447",
+    "sha256": "797e015426e9ceae4cd76a27bbbc58b67cdfe604b50742767e62e0147cf97c7f"
+  },
+  "assets/cards/prestige-obsidian-bloom.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/25a27f440d97698680ad8c0d9b1180b3",
+    "sha256": "0924cff0ba602fe96fef5ea12c5d28100a0082ebea4861d751f07b8c4cc11d23"
+  },
+  "assets/cards/prestige-violet-spider.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/ce297698fd55b82f6ac56bad341b94b7",
+    "sha256": "913d8953c8db09de6757d2b9c6f117965416fa7dd0e0d47511f77ff889fa3b03"
+  },
+  "assets/cards/prestige-crimson-thorns.jpg": {
+    "url": "https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/43eb92aa99338218a0a427232a6910f3",
+    "sha256": "be5e1ab599697cdbf5a66d458d2886cd1e68354feb44e454d55e538293bb3a37"
+  }
+}

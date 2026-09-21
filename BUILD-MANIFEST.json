@@ -1,0 +1,596 @@
+{
+  "name": "Zenvault Bank & Co.",
+  "version": "4.6.1",
+  "based_on": "4.6.0",
+  "storage_key": "zenvault.bank.co.v2",
+  "expo_sdk": "54.0.0",
+  "counts": {
+    "total_files": 114,
+    "javascript_modules": 41,
+    "snack_assets": 58,
+    "all_assets": 60,
+    "dependencies": 7
+  },
+  "changed_from_4_6_0": [
+    "App.js",
+    "AuthModel.js",
+    "AuthScreen.js",
+    "README.md",
+    "app.json",
+    "package.json"
+  ],
+  "added_in_4_6_1": [
+    "RELEASE-NOTES-4.6.1.md",
+    "TABLET-SNACK.md",
+    "verify_project.py",
+    "snack-payload-4.6.1.json",
+    "BUILD-MANIFEST.json"
+  ],
+  "files": [
+    {
+      "path": "ARTWORK.md",
+      "bytes": 32536,
+      "sha256": "ec3a77bf200af5cfe19d6a9f2f29c010170b3b239f79d159ce3e9b7cf0696a64"
+    },
+    {
+      "path": "AdminMembership.js",
+      "bytes": 3806,
+      "sha256": "5d9f49732c4fa1427483be4a498d1dc1911810ff68d0a953b0ba121642928daf"
+    },
+    {
+      "path": "AdminMembershipModel.js",
+      "bytes": 1949,
+      "sha256": "633ab976e355d8106678653b1eec9d1187fad8b7dae7dfb9b8d73e6d4dd18a3c"
+    },
+    {
+      "path": "AdminMessages.js",
+      "bytes": 10042,
+      "sha256": "6ef4c0c54784df0a8d367d06347b7fc9a970845bab9d42e0714478397dde020a"
+    },
+    {
+      "path": "App.js",
+      "bytes": 85767,
+      "sha256": "8282a298657ba7b12ba1c26ee06476ea1396d39a03734d2d94f3c47b0c35af29"
+    },
+    {
+      "path": "AuthModel.js",
+      "bytes": 7766,
+      "sha256": "3a4ecc721b2d4b912b0c417d6422aa4ffd033b34a3ff16ff3ae26201268c8c57"
+    },
+    {
+      "path": "AuthScreen.js",
+      "bytes": 27744,
+      "sha256": "f61d2e0adcccebd299cac11ea599eb42acbf563b7354e1d1dc60c8bdc0304c64"
+    },
+    {
+      "path": "AuthTask.js",
+      "bytes": 1347,
+      "sha256": "fa1bf457ca7b859dadeb20da19bf89ed57ecbbad9b84db5e675e8730fedc245a"
+    },
+    {
+      "path": "BankMessages.js",
+      "bytes": 5299,
+      "sha256": "736c2746efa0e51f2a1857f6edeb1a999f28d27635c1f3a6bda4adf9840f5f71"
+    },
+    {
+      "path": "CardArtAssets.js",
+      "bytes": 3474,
+      "sha256": "db0fe7cdaafab698274b9cb8c8161d91452adeded94c93f1cda4a5d47374c327"
+    },
+    {
+      "path": "CardArtwork.js",
+      "bytes": 13374,
+      "sha256": "c8abb809c42a90954a39f371169b6171e9789e14711a97cb72b45ba82a414b56"
+    },
+    {
+      "path": "CorePlan.js",
+      "bytes": 4285,
+      "sha256": "b3fe94cbee98c822c11dfccac9dd5174a9886f94dd0c624c9b9c5ee56e946fa1"
+    },
+    {
+      "path": "Home4.js",
+      "bytes": 14196,
+      "sha256": "f157a4817d3b98e9a8ca609f5e5742871bf1b624c963d27c6262208f470e4aa2"
+    },
+    {
+      "path": "HomeModes.js",
+      "bytes": 758,
+      "sha256": "ede55ed1fdde1c9bc7dd2a948ae1034c56ec397bf4e04bb025617b60f3f5bad9"
+    },
+    {
+      "path": "Inbox.js",
+      "bytes": 12351,
+      "sha256": "f9dac967cff338e5edb52bbe6030ec5dfe9961529e31044dc23f30bbb5b3a5c7"
+    },
+    {
+      "path": "LICENSE-NOBLE.md",
+      "bytes": 1109,
+      "sha256": "4f221aee6e072336700c408c68ab3b96a3fc09f6aebe6f48f1bd99e5ef13faec"
+    },
+    {
+      "path": "LocalAccount.js",
+      "bytes": 4087,
+      "sha256": "052dd38f424ad374f67ac7410ae3df319c21cbcce1beb5be4487b97617ea44cf"
+    },
+    {
+      "path": "LocalAccountImport.js",
+      "bytes": 4303,
+      "sha256": "3f2b137fa67f761e6a252c5d35982d99ad2059a9866d8f98832dc3b0f4aff0d5"
+    },
+    {
+      "path": "Membership.js",
+      "bytes": 8831,
+      "sha256": "44324ada9c7f72c883c0f47e8c8133646b7736de3af62e428bcdbf33f7f12c60"
+    },
+    {
+      "path": "MembershipAnnouncement.js",
+      "bytes": 7570,
+      "sha256": "a36665d394beb161781722f815ba2883f596d203feccc107fc59b89d751ef9ba"
+    },
+    {
+      "path": "MerchantCatalog.js",
+      "bytes": 1565,
+      "sha256": "024e1a38af059facbb8432a5dc65f9ebeafacdb4c3656e780f224f90b0f00a07"
+    },
+    {
+      "path": "MerchantUI.js",
+      "bytes": 2647,
+      "sha256": "ba70af6ca6907f19ba63135ee74232699783372bf2d7f1cc5bb470c950e3fdb8"
+    },
+    {
+      "path": "Motion.js",
+      "bytes": 1892,
+      "sha256": "2d5ba853a5b36222d4cdd4a27116ec81238ee1a2093a93b1a6410e96e4cc650f"
+    },
+    {
+      "path": "PasswordKdf.js",
+      "bytes": 15363,
+      "sha256": "8cbaf6f3bb5d33df61c009e8f6b0cca81b6db385dc7e8e679775696a4c8b4512"
+    },
+    {
+      "path": "PaymentNote.js",
+      "bytes": 2673,
+      "sha256": "a0d04f28c663db507d7d753fe629f036d1059fc0d3a343c41c4c75a0610b4fba"
+    },
+    {
+      "path": "PaymentTiming.js",
+      "bytes": 1740,
+      "sha256": "b4023f018a2704829c48df37789d0307104ba0a5748860460c6f0b7041f6210b"
+    },
+    {
+      "path": "PrestigeCenter.js",
+      "bytes": 4027,
+      "sha256": "b6a743c9fe64fa3665b7b06a15bddc3e2915109d8583dab798a2b021253b4cc9"
+    },
+    {
+      "path": "PrestigePlans.js",
+      "bytes": 3456,
+      "sha256": "50ac17a738fd7cbbd790eab92c64667454af2b4d72b447559dfb9700fe2222aa"
+    },
+    {
+      "path": "ProfileModel.js",
+      "bytes": 3343,
+      "sha256": "270d95523e178bd8903433a9384b49bfc7d65d1c1a77ca01bc708bba9fddf6e6"
+    },
+    {
+      "path": "ProfileSettings.js",
+      "bytes": 14330,
+      "sha256": "5177cdeff826e1d7888beb16e4bc49cef59223d13f020cdd03456dbcbc6295a5"
+    },
+    {
+      "path": "README.md",
+      "bytes": 73009,
+      "sha256": "5f782d33e99e436f85932839e98893328095b929b1cb7abf87e0a9d75b200112"
+    },
+    {
+      "path": "RELEASE-NOTES-4.6.1.md",
+      "bytes": 1134,
+      "sha256": "5e34107ab971597aa54e73078f2c1a75fd81394cac291bec18f5cddcc895643e"
+    },
+    {
+      "path": "Security.js",
+      "bytes": 3213,
+      "sha256": "5936f8736d987a16841d41323115cfea2fe88d3cb854f67881d1ce342b0656fb"
+    },
+    {
+      "path": "ServiceLogo.js",
+      "bytes": 733,
+      "sha256": "45269658676ae6bee76ec038b54f9cd20b27aeb440dc59b7dd237e58e026b427"
+    },
+    {
+      "path": "SmartTransfer.js",
+      "bytes": 16810,
+      "sha256": "c0de144d2d465b4a584c7761ac8830ab6ae89ecd006b4a1498a6f733f396076b"
+    },
+    {
+      "path": "SmartTransferModel.js",
+      "bytes": 1949,
+      "sha256": "8378370e53c672744bc71ea048514a76a570e1d3e6bb74640728e27baa572dc1"
+    },
+    {
+      "path": "SupportedBanks.js",
+      "bytes": 3749,
+      "sha256": "f20b3a6a7e106049ccfe3847a61f10dd73e1ec72c42aea1bd5fad10dbc085066"
+    },
+    {
+      "path": "TABLET-SNACK.md",
+      "bytes": 1265,
+      "sha256": "81f2e0889355f9e759589f2c89bd6165bbea98f369832e23a3513a38bf15207c"
+    },
+    {
+      "path": "ThemeCatalog.js",
+      "bytes": 7013,
+      "sha256": "0e6df4f8f65fe51de24c2e4a2bcf1bfd21beff5580cba5e5c1cbf03c86a9512f"
+    },
+    {
+      "path": "ThemeStudio.js",
+      "bytes": 9763,
+      "sha256": "f5f0a8748f082c1288573cedb93e12caf0c884581004d1ebb73fca70181603e6"
+    },
+    {
+      "path": "UnlimitedCard.js",
+      "bytes": 4712,
+      "sha256": "2b6407cba6c200beb8f0b5a2f3b119cc6d1614f798865fa0ecbe3db2c6449ea2"
+    },
+    {
+      "path": "UnlimitedCatalog.js",
+      "bytes": 5378,
+      "sha256": "7295cba0c9ef64ce94894a55d9cd62f7ac63e9335a961b32cd3552daebdb545a"
+    },
+    {
+      "path": "UnlimitedStudio.js",
+      "bytes": 12925,
+      "sha256": "1465f19a2e668af1020f4208df2549c9c298c14b75aa7fc732dad9a21d215e35"
+    },
+    {
+      "path": "Zenvault3.js",
+      "bytes": 54292,
+      "sha256": "22cb113b54f2310aca5ad526d2554098d0455868255ac3977cca53a0b48e81ef"
+    },
+    {
+      "path": "app.json",
+      "bytes": 488,
+      "sha256": "29a9f99e740bde989e3a4deba153cd9dcf0af0ce1c80751ff9fb639f356d9aa3"
+    },
+    {
+      "path": "assets/brands/allegro.png",
+      "bytes": 67930,
+      "sha256": "859b924162e73b430a2ec767f43998451ef2f7aec4eb348bb3869273acd38d94"
+    },
+    {
+      "path": "assets/brands/alza.png",
+      "bytes": 11106,
+      "sha256": "979fc8e78286427d4df980aa44652d3846a93e26a233d3681eb99db73bfdad55"
+    },
+    {
+      "path": "assets/brands/disney-plus.png",
+      "bytes": 175388,
+      "sha256": "0527a92dde39ae5dbe976741ff296934c2e7d57db8fc4686de5e5f5a1c87cead"
+    },
+    {
+      "path": "assets/brands/hbo-max.png",
+      "bytes": 18483,
+      "sha256": "8982a118387d5508f97c993e2354f927fee5b7fbd69aa44fc66e31b0de6b7534"
+    },
+    {
+      "path": "assets/brands/kaufland.png",
+      "bytes": 335,
+      "sha256": "4369ad36cbca32b45f440b3640f2c0ce502f95e110db93a7c6f982b2574f0a99"
+    },
+    {
+      "path": "assets/brands/netflix-symbol.png",
+      "bytes": 57272,
+      "sha256": "d2c5760ceb2f46d3cedc6fbc3320708d4caa2bf884af2af8d934343315042962"
+    },
+    {
+      "path": "assets/brands/netflix.png",
+      "bytes": 16470,
+      "sha256": "131556b654ab66a0d9a394a2c251cc2d852d7aeca75b562d9788b778b95440f5"
+    },
+    {
+      "path": "assets/brands/rolling-loud.png",
+      "bytes": 48573,
+      "sha256": "0b2797ca14cd6694facf520e7dba9438ab7fc71668409470c5398f78b061528c"
+    },
+    {
+      "path": "assets/cards/business-falcon.jpg",
+      "bytes": 151625,
+      "sha256": "6c6a6518c1718d55c642ebb69c706ef29a478f496b073920191f589dff46aa2d"
+    },
+    {
+      "path": "assets/cards/business-panther.jpg",
+      "bytes": 116582,
+      "sha256": "acf2f32b1da50c0d825d9eaf7c616d825f55cb25fcdbb703587ec441d6629c25"
+    },
+    {
+      "path": "assets/cards/business-stag.jpg",
+      "bytes": 126586,
+      "sha256": "30b0f18e62339a70054cecd9ebac881dcc4cebcd130b8fd76ccec6ce724f6190"
+    },
+    {
+      "path": "assets/cards/cyan.jpg",
+      "bytes": 153802,
+      "sha256": "ef960e0832c2a7148902a7c8c8ea7b7935c542e49756082c23b3540b5cdfd4c6"
+    },
+    {
+      "path": "assets/cards/gold-lion.jpg",
+      "bytes": 146748,
+      "sha256": "10b8c4906f1a46aebacf501c57d41c862178b8cdb69de70aee6b741bdbdcda8d"
+    },
+    {
+      "path": "assets/cards/gold-scarab.jpg",
+      "bytes": 118089,
+      "sha256": "09df629db0eb3cd77c0a2599cb991358fc1fd56ceffd2164ed08b402f0f99960"
+    },
+    {
+      "path": "assets/cards/hologram-apex.jpg",
+      "bytes": 155249,
+      "sha256": "c2584beb5481674e8f9c2ba2f13af48f0c199c442e3e9dc8f1e7bcd114af9914"
+    },
+    {
+      "path": "assets/cards/lime.jpg",
+      "bytes": 156622,
+      "sha256": "5ac9c27ff778a045fcc315707420012a662d6057eb91d060680a00349da3a6f1"
+    },
+    {
+      "path": "assets/cards/max-cobalt-chrome.jpg",
+      "bytes": 189204,
+      "sha256": "a07e49d23b6a2abe5a5818f10e75e483ea85c39a712ea8e2a0317114d3eb8d5e"
+    },
+    {
+      "path": "assets/cards/max-ember-blade.jpg",
+      "bytes": 122599,
+      "sha256": "069efb5ac047b08214242989c49fd04aae6c923b56ac9a01a159e6f1bf15281a"
+    },
+    {
+      "path": "assets/cards/max-ghost-wings.jpg",
+      "bytes": 128694,
+      "sha256": "0b0e29a98a58317ba7fd997fc731c8fa477305c43702b6ffcdf17772bcbabd21"
+    },
+    {
+      "path": "assets/cards/max-golden-current.jpg",
+      "bytes": 210918,
+      "sha256": "857da815a8434b46312ffb3668fcc2acc8e8a9abd7547e949331bc6d5821e61d"
+    },
+    {
+      "path": "assets/cards/max-hazard.jpg",
+      "bytes": 99705,
+      "sha256": "1e36e1ccdacc4839da802a1581d841a2601ae17b863f478507c84d5501014bf7"
+    },
+    {
+      "path": "assets/cards/max-holo-medusa.jpg",
+      "bytes": 121007,
+      "sha256": "159a4e7cbf0dee3f68a9b256cbf00ccd02dc81abc86cbacc9deb7fa660df5dd3"
+    },
+    {
+      "path": "assets/cards/max-kitty-riot.jpg",
+      "bytes": 246764,
+      "sha256": "be2b21c0c2e04cae43bff2f63ea406167063eb370336ea9559d02c797f22174a"
+    },
+    {
+      "path": "assets/cards/max-liquid-gold.jpg",
+      "bytes": 177560,
+      "sha256": "e29c96321854c6a45835c402cf19da942831b1382b3bc9574e1ce75e78c45826"
+    },
+    {
+      "path": "assets/cards/max-pink-americana.jpg",
+      "bytes": 45405,
+      "sha256": "2172ea7c6159c679405b33a89555792ab9c391c0d9374134987f28a7427d02fb"
+    },
+    {
+      "path": "assets/cards/max-pink-chrome.jpg",
+      "bytes": 191520,
+      "sha256": "57046b704cf0ae3d69023cff3102ca50f1788970a22d9258d028f73952a34688"
+    },
+    {
+      "path": "assets/cards/max-rose-thorns.jpg",
+      "bytes": 107573,
+      "sha256": "43ad4dcf648c3b7bf51671a3a36cc3f9a92330174eaf22c87862e981e5a4c72b"
+    },
+    {
+      "path": "assets/cards/max-stellar.jpg",
+      "bytes": 209804,
+      "sha256": "d85a946da80f4f54a88b8adad4a96c03b0bbb87054e92c69d8c9c0a742051d58"
+    },
+    {
+      "path": "assets/cards/max-thorn-arc.jpg",
+      "bytes": 65790,
+      "sha256": "fc6795bd110b308f3640d2780edee3208675892d54dc9c69288777928d3948d6"
+    },
+    {
+      "path": "assets/cards/orange.jpg",
+      "bytes": 142257,
+      "sha256": "3a16d0fac0ac2914f5e5d14db654c2b3245a6ee03c799f624f75b909168ea338"
+    },
+    {
+      "path": "assets/cards/pink.jpg",
+      "bytes": 130037,
+      "sha256": "b3216a51f288f7a5583995955bc8b22147e2a93232bc1a517566c1d027d64132"
+    },
+    {
+      "path": "assets/cards/platinum-raven.jpg",
+      "bytes": 124678,
+      "sha256": "3447d358ca1593f7b5d53a4dfe35aa695873c6d0a49ba99a01b56586202ccf77"
+    },
+    {
+      "path": "assets/cards/platinum-serpent.jpg",
+      "bytes": 121007,
+      "sha256": "7a9d36cb90cf4ca1e1e64fc69b29bb845fe5f3f886f4b55d4b3c66c86bd55fd6"
+    },
+    {
+      "path": "assets/cards/platinum-wolf.jpg",
+      "bytes": 139349,
+      "sha256": "97516be08c8bf75866ce5c031aabe00a55d41c4727af13eb211e80dc25d143de"
+    },
+    {
+      "path": "assets/cards/prestige-chrome-soul.jpg",
+      "bytes": 208665,
+      "sha256": "797e015426e9ceae4cd76a27bbbc58b67cdfe604b50742767e62e0147cf97c7f"
+    },
+    {
+      "path": "assets/cards/prestige-crimson-thorns.jpg",
+      "bytes": 150741,
+      "sha256": "be5e1ab599697cdbf5a66d458d2886cd1e68354feb44e454d55e538293bb3a37"
+    },
+    {
+      "path": "assets/cards/prestige-deep-night.jpg",
+      "bytes": 157227,
+      "sha256": "2e96591e11ea1f1e83c5cf898c575a0b9d03f0a175409603d58bf8234146ca81"
+    },
+    {
+      "path": "assets/cards/prestige-obsidian-bloom.jpg",
+      "bytes": 128007,
+      "sha256": "0924cff0ba602fe96fef5ea12c5d28100a0082ebea4861d751f07b8c4cc11d23"
+    },
+    {
+      "path": "assets/cards/prestige-violet-spider.jpg",
+      "bytes": 187643,
+      "sha256": "913d8953c8db09de6757d2b9c6f117965416fa7dd0e0d47511f77ff889fa3b03"
+    },
+    {
+      "path": "assets/cards/pro-kitsune.jpg",
+      "bytes": 120980,
+      "sha256": "df6ac5cc019f815f7eba7d458e957220705a7ea3f6204f2fc12f99c785690e2b"
+    },
+    {
+      "path": "assets/cards/pro-koi.jpg",
+      "bytes": 152331,
+      "sha256": "5ac3290dddb5aa097a775c39f2f1472e1efe229a7b85f1ef885c2d3520fb628a"
+    },
+    {
+      "path": "assets/cards/pro-tiger.jpg",
+      "bytes": 117173,
+      "sha256": "3bd474b098198c026c322b4eb33e6e9fd2a0e4c97cf22461621bd13f3bd11cfd"
+    },
+    {
+      "path": "assets/cards/rolling-loud.jpg",
+      "bytes": 118847,
+      "sha256": "a118bb91c9c799bb030f6c56779a89732088a3772146e70cdf12ed61a0597c03"
+    },
+    {
+      "path": "assets/cards/ultra-dragon.jpg",
+      "bytes": 134395,
+      "sha256": "62320745a27c1cd254d5fc9f28448f1497f72eb188072269894273d80510c0ed"
+    },
+    {
+      "path": "assets/cards/ultra-kraken.jpg",
+      "bytes": 132756,
+      "sha256": "436b65cc68c60ad9e377934771d1b3dd2801b768eb7cde2deaa2079f58ac0a37"
+    },
+    {
+      "path": "assets/cards/ultra-phoenix.jpg",
+      "bytes": 145248,
+      "sha256": "085c3401d60836c66aa9fb7400114798798cb1c4aee2b22d7b1cfa81ad2c7981"
+    },
+    {
+      "path": "assets/cards/unlimited-chrome-stars.jpg",
+      "bytes": 73908,
+      "sha256": "8b3a6c4c43838e16e8a61e41a562779fa45a65bba2b7bf04cfb787d24e5dcbfd"
+    },
+    {
+      "path": "assets/cards/unlimited-ethereal.jpg",
+      "bytes": 94039,
+      "sha256": "4b90469507e3aca23738f356b58c5b7d48dd06cbba9e299819aed1da045540a9"
+    },
+    {
+      "path": "assets/cards/unlimited-iconic-blue.jpg",
+      "bytes": 144515,
+      "sha256": "435fb18b0ed33407c1eab9cef0297954d1891d551ecc2a36dd1c0358a525c1a4"
+    },
+    {
+      "path": "assets/cards/unlimited-iconic-pink.jpg",
+      "bytes": 141335,
+      "sha256": "5594774dceff8d15021bfe841819b827e2791f7f2660a3c3aaa8e6bcf26f69e9"
+    },
+    {
+      "path": "assets/cards/unlimited-no-love.jpg",
+      "bytes": 92012,
+      "sha256": "2cb51ca6e92029098f326283e65c727127628c8c60f738504812a0e7e46b4dbf"
+    },
+    {
+      "path": "assets/cards/unlimited-no-time.jpg",
+      "bytes": 64495,
+      "sha256": "8158071b20fc2477a1ac428bbc327fd4d910f1c7247f56dd18ac14dc1c47d263"
+    },
+    {
+      "path": "assets/cards/unlimited-pink-inferno.jpg",
+      "bytes": 109881,
+      "sha256": "b2fe5bca57ffab8057a512dc4131993ddad3ce4160edfcd7c358177071b41bea"
+    },
+    {
+      "path": "assets/cards/unlimited-red-eye.jpg",
+      "bytes": 103242,
+      "sha256": "eafd4494d4557649734ced4dc823bea013930d76d076400b3350b5b5d7a7c17a"
+    },
+    {
+      "path": "assets/cards/unlimited-redline.jpg",
+      "bytes": 183412,
+      "sha256": "720c2546ee2b2cdb529ab164b9f4febc39e309de978e9d88814b7594d3feabd7"
+    },
+    {
+      "path": "assets/cards/unlimited-spider.jpg",
+      "bytes": 244715,
+      "sha256": "823f7b528ae02048dd70514dd183b640474bfea2eee84061b2ae90420706ff55"
+    },
+    {
+      "path": "assets/cards/unlimited-star.jpg",
+      "bytes": 45560,
+      "sha256": "bfea002c29994c664ed17a69e10da84a8fd6398a06c1fbf5f267ab730a0a7e64"
+    },
+    {
+      "path": "assets/cards/unlimited-superstar.jpg",
+      "bytes": 132896,
+      "sha256": "328b4358d6df14fbac5c62eed4231be3639aa6ac08179e64ade39d854a8eba6b"
+    },
+    {
+      "path": "assets/mastercard.png",
+      "bytes": 3901,
+      "sha256": "aeb467a7e34d61b9b560768bc0bc8b22370a718951faba244018871fee9e2cd9"
+    },
+    {
+      "path": "assets/visa.png",
+      "bytes": 2861,
+      "sha256": "60137d3483dfdd603797a097603b1421a335386b404ae710eb16c113c94a7e2d"
+    },
+    {
+      "path": "engine.js",
+      "bytes": 33589,
+      "sha256": "267265089366c5de59914dddbc838a6a543462e50b12e911cbba6d491d0df0b3"
+    },
+    {
+      "path": "package.json",
+      "bytes": 692,
+      "sha256": "46087cad7a3524130cbff173620fbdeec83dc6ca339159c166c0df7266a5ec3e"
+    },
+    {
+      "path": "prepare_snack.py",
+      "bytes": 2251,
+      "sha256": "4ad367dee50525cab17bcf9aa9eae8b57939dc9075752866a34cdab19123f034"
+    },
+    {
+      "path": "qr.js",
+      "bytes": 57756,
+      "sha256": "74d2fa1342c71abc7d6e801f2b3871b3bae2a44ed07c76177ef6bd66998f56fc"
+    },
+    {
+      "path": "snack-assets.json",
+      "bytes": 13516,
+      "sha256": "1293f64c43c53d7d7105c9f740a2d6bf0d417cca36e5e9b9d0307a55561226eb"
+    },
+    {
+      "path": "snack-dependencies.json",
+      "bytes": 1348,
+      "sha256": "ba881ea36cb870fa292c9ab323ea05b142f6f2f4003d8434028d5bf22f37c9aa"
+    },
+    {
+      "path": "snack-payload-4.6.1.json",
+      "bytes": 528864,
+      "sha256": "63db4fb121a3388dbd6ef4efbad65e02d9c06424c20b14e0e100f13f38c04574"
+    },
+    {
+      "path": "verify_project.py",
+      "bytes": 2299,
+      "sha256": "ce674d5d752396d9c13a2f20d51285b470abcba012cbec153788554b5f83735c"
+    }
+  ]
+}
