@@ -1,6 +1,6 @@
 {
   "name": "zenvault-bank-co",
-  "version": "4.6.1",
+  "version": "5.0.0",
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {

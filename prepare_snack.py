@@ -26,7 +26,7 @@ for path, asset in assets.items():
         raise SystemExit('Changed or missing Snack asset: ' + path)
 payload = {
     'manifest': {'sdkVersion': '54.0.0', 'name': 'Zenvault Bank & Co. ' + package['version'],
-                 'description': 'Czech premium banking frontend with local data', 'dependencies': versions},
+                 'description': 'Zenvault 5 — Your Money OS. Premium Czech banking frontend with local data.', 'dependencies': versions},
     'code': {file.name: {'type': 'CODE', 'contents': file.read_text()} for file in files},
     'dependencies': resolved,
     'isDraft': False,

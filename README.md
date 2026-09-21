@@ -1,26 +1,43 @@
-# Zenvault Bank & Co. 4.6.1 — Expo / Snack
+# Zenvault Bank & Co. 5.0.0 — Your Money OS
 
-Prémiový bankovní frontend v češtině, s propojenými místními účty. Sky Blue, 33 motivů aplikace a Liquid Glass. Verze 4.5 přidává Prestige a Prestige MAX nad Business, pět dodaných motivů, odebrání členství / trialu v administraci a generátor místního zobrazovaného čísla karty. Jde o lokální prototyp; předplatné ani skutečné bankovní služby nejsou napojené.
+Zenvault 5 je major update lokálního Expo / Snack bankovního frontendu. Zachovává datový základ a funkce řady 4.x, ale přestavuje hlavní práci s aplikací kolem **Financial Command Center**, Zenvault Intelligence, univerzálního Command vyhledávání, Card Center 5, Shared Vaults, Subscriptions Hub, Purchase Hub, Security Center 5, Plan Center 5, Zenvault Moments a Admin Studio 5.
 
-## Spuštění
+Jde o funkční lokální prototyp. Neprovádí skutečné bankovní převody, KYC, vydávání platebních karet, passkeys ani externí zrušení předplatného. Místní data zůstávají v úložišti zařízení.
 
-Poslední ověřený publikovaný Snack zůstává [Zenvault Bank & Co. 4.5.1](https://snack.expo.dev/aHuBc8t_XxkZHTSt4Kcyz). Verze 4.6.1 je samostatný lokální build nad hotovou 4.6.0; původní 4.6.0 se nepřepisuje. Publikace do Snacku není součástí tohoto ZIPu.
+## Zenvault 5.0 — major update
 
-Ve Snacku otevřete webový náhled nebo kompatibilní Expo Go. Projekt má SDK 54. Na iPhonu je potřeba Expo Go podporující toto SDK; jinak použijte webový náhled nebo vlastní development build. Face ID vyžaduje vlastní iOS build.
+- **Home 5 / Financial Command Center:** nový výchozí přehled s celkovou hodnotou účtů, Vaults a ručně sledovaných investic, forecastem konce měsíce, odhadem tempa výdajů a kontextovými doporučeními.
+- **Zenvault Intelligence:** porovnání výdajů s minulým měsícem, budget risk, známé subscriptions, čekající převody a orientační forecast založený pouze na lokální historii profilu.
+- **Zenvault Command:** globální vyhledávání akcí, transakcí, Vaults, karet a předplatných. Z jednoho pole lze otevřít Smart Transfer, Card Center, Security, Purchase Hub a další části.
+- **Card Center 5:** live card přehled, Card Controls, Travel Mode, Subscriptions Hub a galerie na jednom místě.
+- **Shared Vaults:** Vaulty podporují lokální členy a role **Viewer / Contributor / Manager**. Role jsou pouze součást prototypu a nevytvářejí společný bankovní účet.
+- **Subscriptions Hub 5:** přehled měsíčního součtu, další známé platby, použitá karta a lokální historie změn ceny.
+- **Purchase Hub:** rozšířený detail transakce s merchant identitou, kategorií, kartou, kanálem, zemí, referencí, dokumenty a návazností na split / request flow.
+- **Security Center 5:** soustředí PIN, biometriku, trusted device, bezpečnostní historii a emergency controls. Passkey je zatím pouze připravená UI vrstva pro budoucí nativní integraci.
+- **Plan Center 5:** membership, rewards, Card Gallery a Theme Studio v jednom centru bez přidávání dalších tarifů.
+- **Admin Studio 5:** balance, transakce, body, membership / trial a bankovní komunikace doplněné snapshotem a client timeline.
+- **Zenvault Moments:** nový vizuální feed milníků, security událostí a rewards. Fullscreen receipt a Welcome 5 používají stejný směr vizuální prezentace.
+- **Welcome to Zenvault 5:** jednorázový pětidílný cinematic onboarding po prvním otevření verze 5 na zařízení.
+- **Smart Transfer 5:** zachovává funkční flow z 4.6 — kontakt / IBAN, okamžitá, plánovaná a opakovaná platba, split, request, QR, cover, emoji a animovaný receipt.
+- **Design System 5:** sjednocený glass / surface jazyk, nové feature gradient cards, command modal a responzivnější Money OS grid na tabletu.
 
-Pro místní Expo projekt rozbalte celý archiv, v adresáři zenvault spusťte `npm install` a `npx expo start`. Pro web `npm run web`. Při změně SDK sjednoťte závislosti pomocí `npx expo install --fix`.
+## Kompatibilita a data
 
-**Přenášej celý projekt.** V kořeni jsou všechny JS moduly, app.json a pomocné validační soubory. Obrázky: 50 JPG v assets/cards a 8 PNG v assets/brands. Zachovej všechny cesty a sedm závislostí s úplnými metadaty v snack-dependencies.json. `prepare_snack.py` vytvoří kompletní Snack payload se skutečnými assety; samotný App.js nestačí. Původní úložiště `zenvault.bank.co.v2` i místní účty se migrují beze ztráty historie.
+Zenvault 5 používá stejné hlavní úložiště `zenvault.bank.co.v2`. Migrační vrstva přidává pouze nové výchozí struktury a `featuresVersion: 5`; historie, karty, transakce, Vaults, membership i místní účty z 4.6.1 zůstávají zachované. Nové místní účty používají 180 000 PBKDF2 iterací a přihlášení zůstává kompatibilní se staršími 600 000 iteracemi.
 
+## GitHub → Pages → Snack workflow
 
-## Aktualizace 4.6.1 — tablet + stabilita registrace
+Vývojová distribuční cesta pro tablet je nyní **GitHub-first**. Zdrojový projekt je uložen v `oxvaa/zenvault`. Pro každou verzi vytvoř `snack-payload-<verze>.json`, aktualizuj root `index.html` a publikuj přes GitHub Pages. Stránka pak pomocí Snack SDK vytvoří nový multi-file Snack včetně assetů a dependencies bez ručního přesouvání souborů uvnitř Snack editoru.
 
-- Zachovává kompletní funkce 4.6.0 včetně Smart Transfer, Prestige / Prestige MAX, Unlimited MAX, Vaults, Insights, Inboxu, dokumentů, admin nástrojů, motivů, Card Builderu a všech existujících assetů.
-- Nové místní účty používají mobilně praktičtější PBKDF2 profil (180 000 iterací) místo 600 000 iterací v čistém JavaScriptu. Tím se výrazně zkracuje dlouhý loading při registraci na telefonu a tabletu.
-- Přihlášení zůstává zpětně kompatibilní s místními účty vytvořenými ve 4.6.0 s 600 000 iteracemi. Formát úložiště `zenvault.bank.co.v2` se nemění.
-- Auth obrazovka má širší responzivní kontejner pro tablet; hlavní obsah aplikace se na velké obrazovce rozšíří, ale na telefonu zůstává původní kompaktní layout.
-- iPad/tablet podpora je v Expo konfiguraci povolena. Android tablet funguje přes stejný Expo projekt.
-- Přidány `TABLET-SNACK.md`, `RELEASE-NOTES-4.6.1.md`, `verify_project.py` a manifest buildu pro snazší přenos celého projektu ze Samsung tabletu.
+Pro 5.0.0:
+
+`python3 verify_project.py`
+
+`python3 prepare_snack.py snack-payload-5.0.0.json`
+
+Projekt zůstává na Expo SDK 54. Assets jsou beze změny proti 4.6.1: 50 JPG v `assets/cards`, 8 PNG v `assets/brands`, plus `mastercard.png` a `visa.png` v `assets/`.
+
+## Historie funkcí 4.x
 
 ## Prestige & Prestige MAX · 4.5
 

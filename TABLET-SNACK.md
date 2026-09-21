@@ -1,29 +1,31 @@
-# Samsung Galaxy Tab — Expo Snack workflow
+# Samsung Galaxy Tab — Zenvault GitHub / Snack workflow
 
-## Doporučený postup
+Zenvault 5 používá na tabletu stabilnější cestu **GitHub → GitHub Pages → Expo Snack SDK**. Nepoužívej vestavěný Snack „Import git repository“ pro tento projekt; u binárních assets může selhávat.
 
-1. Rozbal `Zenvault-Bank-Co-Expo-4.6.1.zip` v aplikaci **Moje soubory / My Files**.
-2. V Chrome nebo Samsung Internet zapni **Web pro počítač / Desktop site** a otevři `snack.expo.dev`.
-3. Vytvoř nový Snack a přenes **celý obsah složky `zenvault/`**, ne pouze `App.js`.
-4. Zachovej názvy a cesty `assets/cards/*` a `assets/brands/*`.
-5. Dependencies nastav podle `package.json`. Pro automatizovaný Snack payload slouží `snack-dependencies.json`, `snack-assets.json` a `prepare_snack.py`.
-6. Pokud používáš Expo Go, spusť projekt přes QR / otevření Snacku v Expo Go. Projekt zůstává na Expo SDK 54, aby se neměnil funkční základ 4.6.0.
+## Aktualizace projektu
 
-## Co musí být ve Snacku
+1. Otevři repozitář `oxvaa/zenvault` v Chrome v desktop režimu.
+2. V rootu repozitáře aktualizuj změněné `.js`, `package.json`, `app.json`, dokumentaci a nový `snack-payload-5.0.0.json`.
+3. Složky `assets/cards` a `assets/brands` není nutné znovu nahrávat, pokud se obrázky v dané verzi nemění.
+4. Nahraď root `index.html` verzí pro 5.0.0.
+5. GitHub Pages nech publikovat z větve `main`, složka `/(root)`.
+6. Otevři `https://oxvaa.github.io/zenvault/` a klikni na tlačítko pro vytvoření nového Snacku.
+7. Nově vzniklý Snack ulož do svého Expo účtu.
 
-- všechny `.js` soubory v kořeni projektu;
+## Co obsahuje Snack payload 5.0.0
+
+- všechny root `.js` moduly včetně `Home5.js` a `Zenvault5.js`;
 - `app.json`;
-- 50 JPG v `assets/cards/`;
-- 8 PNG v `assets/brands/`.
+- 58 Snack assets se zachovanými cestami `assets/cards/*` a `assets/brands/*`;
+- 7 resolved dependencies ze `snack-dependencies.json`;
+- Expo SDK 54.
 
-Dva pomocné obrázky `assets/mastercard.png` a `assets/visa.png` jsou ponechané v archivu stejně jako v 4.6.0, ale aktuální UI používá vlastní síťové vykreslení a Snack payload je nevyžaduje.
+`assets/mastercard.png` a `assets/visa.png` zůstávají v plném ZIPu a GitHub repu, ale současný Snack payload je nevyžaduje.
 
-## Ověření před uploadem
-
-Na prostředí s Pythonem lze spustit:
+## Ověření před publikací
 
 `python3 verify_project.py`
 
-A pro vytvoření payloadu:
+`python3 prepare_snack.py snack-payload-5.0.0.json`
 
-`python3 prepare_snack.py snack-payload-4.6.1.json`
+Původní storage key `zenvault.bank.co.v2` se nemění, takže upgrade zachovává místní 4.x profily na stejném zařízení.
