@@ -42,6 +42,7 @@ export function sendBankMessage(d,actor,a,now,id){
   message.offer={tier:a.offer.tier,days:a.offer.days,expiresAt:later(now,a.offer.validDays),price:0,currency:'CZK',autoRenew:false,redeemedAt:null};
  }
  target.bankMessages.unshift(message);
+ target.adminLog=[{id:id(),name:'Bankovní zpráva · '+message.title,department:message.department,priority:message.priority,date:message.date,actor:actor.id},...(target.adminLog||[])];
  d.bankOutbox=[{id:message.id,recipientId:target.id,recipientName:target.name,actorId:actor.id,date:message.date,title:message.title},...(d.bankOutbox||[])];
  return message;
 }

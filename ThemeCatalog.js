@@ -22,6 +22,9 @@ export const APP_THEMES=[
  make('noir','Obsidian Noir','Night','orbital','ellipse-outline','#4D5366','#BAC3DA','#F6F6F9','#E7E8EE','#0B0C13','#23252F','#DADEEA'),
  make('blueprint','Blueprint Studio','Studio','grid','grid-outline','#285EB4','#A1BFFF','#F2F6FE','#DFE9FC','#0C1830','#213552','#AECBFF'),
  make('festival','Festival Glow','Night','streak','musical-notes-outline','#6534AB','#C8F36B','#F8F4FF','#EBDFFC','#190F2A','#30213E','#DCB6FF'),
+ {...make('z5-red','Bright Red','Zenvault 5','streak','flash-outline','#E60023','#FF526A','#FFF5F6','#FFE1E5','#210006','#42000B','#FF6579'),edition:'z5'},
+ {...make('z5-red-black','Bright Red & Black','Zenvault 5','prism','contrast-outline','#FF1738','#FF4963','#151515','#231014','#050505','#151515','#FF4963'),edition:'z5',forceDark:true},
+ {...make('z5-red-silver','Bright Red & Silver','Zenvault 5','grid','diamond-outline','#D90429','#FF526A','#F7F8FA','#E7E9EE','#101114','#282A30','#FF6A7E'),edition:'z5'},
  ...[
  make('azure','Azure Club','Studio','wave','water-outline','#005AC7','#77CDFF','#F3F8FF','#E0EEFF','#08152A','#162D49','#91CAFF'),
  make('dune','Dune Atelier','Nature','arc','sunny-outline','#785A35','#E9C894','#FBF8F2','#EFE7D8','#201B13','#373024','#E3C79D'),
@@ -42,7 +45,7 @@ export const APP_THEMES=[
  ].map(m=>({...m,edition:'new'})),
  {...make('unlimited-monochrome','Unlimited Monochrome','Private','arc','infinite-outline','#000000','#D8D8D8','#FFFFFF','#F3F3F3','#FFFFFF','#FFFFFF','#000000'),edition:'new',exclusive:'Unlimited',forceLight:true},
 ];
-export const THEME_GROUPS=['Vše','Nové','Studio','Candy','Nature','Night','Private'];
+export const THEME_GROUPS=['Vše','Nové','Zenvault 5','Studio','Candy','Nature','Night','Private'];
 export const canUseTheme=(u,m)=>!!m&&(!m.exclusive||(!u.parentId&&(u.tier===m.exclusive||(m.exclusive==='Unlimited'&&isUnlimitedTier(u.tier)))))&&(m.id!=='candy'||hasMaxBenefits(u)||!!u.unlocks?.includes('theme'));
 const legacy={Silver:['cloud','ocean','lilac'],Gold:['gold','peach','gold'],Platinum:['chrome','lilac','mint'],Pro:['sky','ocean','grape'],Ultra:['candy','noir','aurora'],Business:['blueprint','matcha','peach']};
 export function resolveAppTheme(u){
@@ -54,6 +57,6 @@ export function resolveAppTheme(u){
  return APP_THEMES.find(m=>m.id===id)||APP_THEMES[0];
 }
 export function themeTokens(m,dark){
- const mono=!!m.forceLight;dark=mono?false:!!dark;
+ const mono=!!m.forceLight;dark=m.forceDark?true:(mono?false:!!dark);
  return {dark,mono,bg:dark?m.night:m.light,panel:dark?m.panel:'#FFFFFF',surface:dark?m.panel+'ED':'#FFFFFFED',text:mono?'#0A0A0A':dark?'#F5F7FC':'#142235',muted:mono?'#656565':dark?'#B5C0D2':'#586B7D',soft:dark?m.panel:m.soft,border:mono?'#E6E6E6':dark?'#FFFFFF18':m.accent+'14',accent:dark?m.darkAccent:m.accent,button:m.accent,positive:mono?'#000000':dark?'#82DDAB':'#14754F',featureGradient:dark?[m.panel,m.night]:[m.soft,m.light],theme:m};
 }

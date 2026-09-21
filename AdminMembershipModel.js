@@ -19,7 +19,8 @@ export function removeMembership(d,actor,a,now,makeId){
  }
  const audit={id:makeId(),actorId:actor.id,targetId:u.id,scope:a.scope,fromTier:oldTier,toTier:u.tier,trial,core,reason,date};
  u.membershipHistory=[audit,...(u.membershipHistory||[])];
+ u.adminLog=[{id:makeId(),name:a.scope==='trial'?'Odebrání trialu':'Odebrání členství',fromTier:oldTier,toTier:u.tier,reason,date,actor:actor.id},...(u.adminLog||[])];
  d.membershipAudit=[audit,...(d.membershipAudit||[])];
- u.notifications.unshift({id:makeId(),title:a.scope==='trial'?'Zkušební plán byl odebrán':'Členství bylo odebráno',body:'Administrátor upravil tvůj místní účet. Aktivní plán: Zenvault '+u.tier+'. Důvod: '+reason+'. Zůstatky, body, karty a historie zůstávají zachované. Žádný poplatek ani refundace se neúčtuje.',date});
+ u.notifications.unshift({id:makeId(),title:a.scope==='trial'?'Zkušební plán byl odebrán':'Členství bylo odebráno',body:'Banka upravila tvůj místní účet. Aktivní plán: Zenvault '+u.tier+'. Důvod: '+reason+'. Zůstatky, body, karty a historie zůstávají zachované. Žádný poplatek ani refundace se neúčtuje.',date});
  return u;
 }

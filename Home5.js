@@ -44,7 +44,7 @@ export default function Home5({u,data,ui,go,onOpen,renderCard,currency,setCurren
    ['moments5','flash-outline','Moments','Milníky a důležité změny'],
    ['security5','shield-checkmark-outline','Security','Identity & emergency'],
    ['plans5','diamond-outline','Plan Center','Membership na jednom místě'],
-   ...(data.mode==='Administrátor'?[['admin5','construct-outline','Admin Studio','Interní klientské nástroje']]:[])
+   ...(data.mode==='Administrátor'?[['admin5','construct-outline','Admin Studio 6 Beta','Detailní interní klientské nástroje']]:[])
   ].map(([id,icon,title,sub])=><Touch key={id} accessibilityRole="button" accessibilityLabel={title} onPress={()=>go(id)} style={{width:tileWidth,minHeight:132,backgroundColor:t.surface,borderWidth:1,borderColor:t.border,borderRadius:24,padding:17}}><View style={{width:39,height:39,borderRadius:14,backgroundColor:t.soft,alignItems:'center',justifyContent:'center'}}><Icon name={icon} size={20} color={t.accent}/></View><Label style={{fontSize:14,fontWeight:'800',marginTop:13}}>{title}</Label><Label muted style={{fontSize:10,lineHeight:16,marginTop:5}}>{sub}</Label></Touch>)}</View></>}
 
   <Section title="Tvoje karta" action="Card Center" onPress={()=>go('cards5')}/>

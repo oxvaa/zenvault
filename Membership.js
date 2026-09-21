@@ -40,7 +40,7 @@ export const MAX_BENEFITS=[
  'MAX Card Builder: 22 motivů v ceně + 3 Art Editions za 899 Kč / kartu',
  'Vlastní zobrazené číslo, celoplošná kompozice a Hologram / Static okraj',
  'Hologram Limited v ceně, bez odečtení bodů',
- 'Všech 33 motivů aplikace včetně Candy Sky a Unlimited Monochrome',
+ 'Všech 36 motivů aplikace včetně Candy Sky a Unlimited Monochrome',
  'Private Banking s prioritou Unlimited MAX a lifestyle concierge',
  'Jednorázové virtuální karty, měnové účty a všechny nástroje Unlimited',
 ];
@@ -57,7 +57,7 @@ export const UNLIMITED_BENEFITS=[
  'Cashback 3 % u vybraných obchodníků',
  '3 body za každých celých 100 Kč karetního nákupu',
  'Private Banking s prioritou Unlimited a concierge',
- 'Jednorázové virtuální karty a 32 motivů aplikace',
+ 'Jednorázové virtuální karty a 34 motivů aplikace',
  'Exkluzivní Unlimited Monochrome: bílé prostředí a černé akcenty',
 ];
 

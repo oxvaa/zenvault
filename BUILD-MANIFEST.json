@@ -1,26 +1,28 @@
 {
   "product": "Zenvault Bank & Co.",
-  "version": "5.0.0",
-  "codename": "Your Money OS",
+  "version": "5.1.0",
+  "codename": "Your Money OS · Auth 5 · Admin Studio 6 Beta",
   "expoSdk": "54.0.0",
   "storageKey": "zenvault.bank.co.v2",
-  "featuresVersion": 5,
+  "featuresVersion": "5.1",
   "counts": {
-    "javascriptModules": 43,
-    "snackCodeEntries": 44,
+    "javascriptModules": 45,
+    "snackCodeEntries": 46,
     "snackAssets": 58,
     "resolvedDependencies": 7,
     "cardAssets": 50,
     "brandAssets": 8,
-    "projectFilesExcludingManifest": 118
+    "projectFilesExcludingManifest": 122
   },
   "distribution": {
-    "payload": "snack-payload-5.0.0.json",
+    "payload": "snack-payload-5.1.0.json",
     "pagesImporter": "index.html",
     "githubRepo": "oxvaa/zenvault",
     "githubPages": "https://oxvaa.github.io/zenvault/"
   },
   "majorFeatures": [
+    "Auth 5 / Money OS sign-in and registration",
+    "Zenvault 5 Bright Red theme collection",
     "Home 5 / Financial Command Center",
     "Zenvault Intelligence",
     "Zenvault Command",
@@ -30,7 +32,9 @@
     "Purchase Hub",
     "Security Center 5",
     "Plan Center 5",
-    "Admin Studio 5",
+    "Admin Studio 6 Beta",
+    "Admin negative balances with mandatory bank reason",
+    "Bank-origin admin transactions",
     "Zenvault Moments",
     "Welcome to Zenvault 5",
     "Smart Transfer 5"
@@ -43,23 +47,33 @@
     },
     {
       "path": "AdminMembership.js",
-      "size": 3806,
-      "sha256": "5d9f49732c4fa1427483be4a498d1dc1911810ff68d0a953b0ba121642928daf"
+      "size": 4252,
+      "sha256": "933353a669bbe1ee825f563c5db832ac28193b6f2a88d6e6e690c6c55fb5b6dd"
     },
     {
       "path": "AdminMembershipModel.js",
-      "size": 1949,
-      "sha256": "633ab976e355d8106678653b1eec9d1187fad8b7dae7dfb9b8d73e6d4dd18a3c"
+      "size": 2115,
+      "sha256": "8535d64ffbcd5ca6387a3f20b15de9b83564db86629dfc1f1a2f2159b2fc3feb"
     },
     {
       "path": "AdminMessages.js",
-      "size": 10042,
-      "sha256": "6ef4c0c54784df0a8d367d06347b7fc9a970845bab9d42e0714478397dde020a"
+      "size": 10179,
+      "sha256": "9a0f899cae9a94a28c6b6885dd90ff97c889574f96529ca32e549eba999aaf71"
+    },
+    {
+      "path": "AdminReasons.js",
+      "size": 1331,
+      "sha256": "d5721ac7edc12eb567e05205a37abc533dbe83f13fce16b84339401c813f5301"
+    },
+    {
+      "path": "AdminStudio6.js",
+      "size": 8398,
+      "sha256": "586044f23af81d61a7acb3729b63ef9b894c1b68010b5634ffcabf5460959c31"
     },
     {
       "path": "App.js",
-      "size": 87762,
-      "sha256": "520ef3bf925dd02bdd129d280d9d21bb4fe00285062016bb2319056044370e2a"
+      "size": 97065,
+      "sha256": "bfe48adfd5ff723455267089627efc146230b1ac038ca58b62f77b6a7b7b9f2c"
     },
     {
       "path": "AuthModel.js",
@@ -68,8 +82,8 @@
     },
     {
       "path": "AuthScreen.js",
-      "size": 27735,
-      "sha256": "487274e8a3be357c32e648a5771919d16afb9ff493a643635ee32ca65b7a7843"
+      "size": 28464,
+      "sha256": "3779e27a646bcc4179067430ad479d32e67abeda89bde9ed83773c1c41456522"
     },
     {
       "path": "AuthTask.js",
@@ -78,8 +92,8 @@
     },
     {
       "path": "BankMessages.js",
-      "size": 5299,
-      "sha256": "736c2746efa0e51f2a1857f6edeb1a999f28d27635c1f3a6bda4adf9840f5f71"
+      "size": 5486,
+      "sha256": "08609a1fafae0b19076e102d8a8c8adada301251e700f0f83b55286d39db6e63"
     },
     {
       "path": "CardArtAssets.js",
@@ -103,8 +117,8 @@
     },
     {
       "path": "Home5.js",
-      "size": 8450,
-      "sha256": "703ea33b8d164330bde9c8775b61b36acc061a66bd038ae5dfe73f3bc5ae005e"
+      "size": 8467,
+      "sha256": "161970ff80ef4f3de3c093abe4d999fcbb4934e948a806f5a9dc418a376e99da"
     },
     {
       "path": "HomeModes.js",
@@ -134,7 +148,7 @@
     {
       "path": "Membership.js",
       "size": 8831,
-      "sha256": "44324ada9c7f72c883c0f47e8c8133646b7736de3af62e428bcdbf33f7f12c60"
+      "sha256": "b16d5f3902e24203dde1054eaa1d016d903dbd96f3a7c36d14c4a4d9eb1a2fd3"
     },
     {
       "path": "MembershipAnnouncement.js",
@@ -179,7 +193,7 @@
     {
       "path": "PrestigePlans.js",
       "size": 3456,
-      "sha256": "50ac17a738fd7cbbd790eab92c64667454af2b4d72b447559dfb9700fe2222aa"
+      "sha256": "5203a634a2b30c3d0510497d4b89720cc5512999680fe910bc6c75138682efbb"
     },
     {
       "path": "ProfileModel.js",
@@ -189,12 +203,12 @@
     {
       "path": "ProfileSettings.js",
       "size": 14330,
-      "sha256": "5177cdeff826e1d7888beb16e4bc49cef59223d13f020cdd03456dbcbc6295a5"
+      "sha256": "8f387e028e8c9bdd9cab5d7224376413e09961c552662231a6482037580e9735"
     },
     {
       "path": "README.md",
-      "size": 74377,
-      "sha256": "26e00bbd1144e868ae363708e98ec1be581c5a9f0136135eb22d1fbc94d80aec"
+      "size": 74675,
+      "sha256": "569f53aa0581dba628c3c1121b858d8f20d5a1cdcdeb0813fbedb5f55c91d7ed"
     },
     {
       "path": "RELEASE-NOTES-4.6.1.md",
@@ -205,6 +219,11 @@
       "path": "RELEASE-NOTES-5.0.0.md",
       "size": 1426,
       "sha256": "dbbe041def479ab9d64c2a32f336fc7cd0238a324a3cbcedb79fd76d0c46a4a5"
+    },
+    {
+      "path": "RELEASE-NOTES-5.1.0.md",
+      "size": 1954,
+      "sha256": "4f6c5dec24c10b1134f330752bc5a16a27873adf7667359384662b6a156d556d"
     },
     {
       "path": "Security.js",
@@ -234,17 +253,17 @@
     {
       "path": "TABLET-SNACK.md",
       "size": 1533,
-      "sha256": "fb5a8eedab312dcdee046fec1721604d4511b08e06231fd51e8147cfc2188dbd"
+      "sha256": "c1807fb3bce013c696a713ab65a30ca6180cf80096fda2cbe19b37ffd2ba26c4"
     },
     {
       "path": "ThemeCatalog.js",
-      "size": 7013,
-      "sha256": "0e6df4f8f65fe51de24c2e4a2bcf1bfd21beff5580cba5e5c1cbf03c86a9512f"
+      "size": 7560,
+      "sha256": "3d0f120ccbbbb7e8ea82fa0ae431bc3543107f5a16c17262bf5aafd4b14dd968"
     },
     {
       "path": "ThemeStudio.js",
-      "size": 9763,
-      "sha256": "f5f0a8748f082c1288573cedb93e12caf0c884581004d1ebb73fca70181603e6"
+      "size": 9860,
+      "sha256": "93cafdc9293cf607ca1802d5a2b5ae9fdb0dbeb7062768d5c328a044cc14ecba"
     },
     {
       "path": "UnlimitedCard.js",
@@ -263,18 +282,18 @@
     },
     {
       "path": "Zenvault3.js",
-      "size": 55439,
-      "sha256": "229b4b69c77da5d5aecd82b88f2cd33ca0f097d4ed8c21dc7966fc324ec52970"
+      "size": 55444,
+      "sha256": "2ee3ef34e5f90793ceb9afc069f86ab0cbe9d6ad7f4fde1b2d5dbb83ede0b865"
     },
     {
       "path": "Zenvault5.js",
-      "size": 28194,
-      "sha256": "d0f27f8d84376e874827b2d53cdddb62f32ae8952022fb5703b15f25f8a30472"
+      "size": 25914,
+      "sha256": "431dcf1b501adfbe7d64ec78ac9b5f3f351bf865d188695841c8f715cd44cac5"
     },
     {
       "path": "app.json",
       "size": 488,
-      "sha256": "1d1407dcec5ad08e6d0ae371f35eaf3a1af51519508ecddf50c3199794e15735"
+      "sha256": "a9b68306e455d83f275ee4d2263e0027c747761372a283f95afee9792cfe5fe0"
     },
     {
       "path": "assets/brands/allegro.png",
@@ -578,18 +597,18 @@
     },
     {
       "path": "engine.js",
-      "size": 34998,
-      "sha256": "928353a533865f2e97ca370dcf2e313aabdc863802695871aa4d1ccc614d6a62"
+      "size": 38408,
+      "sha256": "14b7ad287f607543b7080021b3f7792728300e484677d491516ba0272db3d460"
     },
     {
       "path": "index.html",
       "size": 6174,
-      "sha256": "3fd68cc7863c40947cc03d0c1ec3678f657137ffea21f82c6640d3cac5dfb484"
+      "sha256": "968608209e935d6329a975f903e9bd69a4971fa788ff8e3db3888653e002e36c"
     },
     {
       "path": "package.json",
       "size": 692,
-      "sha256": "918bad5a81ba53f24f4f3406ffb485bb878da5dea02fda727baeecb429b823b8"
+      "sha256": "135a7384aaa78f058e688a4159ee0c618163130a79d8cb29ec1a2e64509a369d"
     },
     {
       "path": "prepare_snack.py",
@@ -622,9 +641,14 @@
       "sha256": "d230d2db75964b466bb39a90aec34da62b0b67f8367dd11f8376fa77feefeccc"
     },
     {
+      "path": "snack-payload-5.1.0.json",
+      "size": 597610,
+      "sha256": "7399b9fe257759a6f91b338655afc6443ab8e421b82e0a317985a1aee00b8936"
+    },
+    {
       "path": "verify_project.py",
-      "size": 3852,
-      "sha256": "161d728d82149e3719b42e7f27e6efd94309f67da2279b42d3ebb78b77e48fd0"
+      "size": 3888,
+      "sha256": "8efa42bc2a149119c76651580eeba4b9837a46ada412aa1191398178606b0769"
     }
   ]
 }

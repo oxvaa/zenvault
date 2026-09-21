@@ -3,18 +3,18 @@ import {View} from 'react-native';
 import {membershipStamp} from './AdminMembershipModel';
 import {makeId} from './engine';
 
-export default function AdminMembership({data,u,ui,dispatch,onDone}){
+export default function AdminMembership({data,u,ui,dispatch,onDone,initialTargetId}){
  const {t,Panel,Label,Button,Chips,Field,Section}=ui,clients=data.users.filter(x=>!x.parentId);
- const [targetId,Target]=useState(clients.find(x=>x.id===u.id)?.id||clients[0]?.id),[scope,Scope]=useState('all'),[reason,Reason]=useState(''),[review,Review]=useState(null),[error,ErrorText]=useState('');
+ const [targetId,Target]=useState(clients.find(x=>x.id===initialTargetId)?.id||clients.find(x=>x.id===u.id)?.id||clients[0]?.id),[scope,Scope]=useState('all'),[reason,Reason]=useState(''),[review,Review]=useState(null),[error,ErrorText]=useState('');
  const target=clients.find(x=>x.id===targetId),title=x=>x.name+' · '+x.id.slice(-4);
  if(data.mode!=='Administrátor')return <Label muted>Tato funkce vyžaduje režim Administrátor.</Label>;
  if(!target)return <Label muted>Nejprve vytvoř dospělý místní účet.</Label>;
  const check=()=>{if(reason.trim().length<3){ErrorText('Uveď důvod odebrání (alespoň 3 znaky).');return;}Review({type:'adminMembershipRemove',target:target.id,scope,reason:reason.trim(),expected:membershipStamp(target),accepted:true,op:makeId()});ErrorText('');ui.scrollTop?.();};
  return <View testID="admin-membership">
-  <Label style={{fontSize:26,fontWeight:'800',marginBottom:13}}>Členství pod kontrolou.</Label>
-  <Label muted style={{lineHeight:22,marginBottom:19}}>Odeber pouze trial, nebo celé členství. Změna se provede okamžitě v místním účtu a uloží do historie.</Label>
+  <Label muted style={{fontSize:10,fontWeight:'900',letterSpacing:1.8,marginBottom:8}}>ADMIN STUDIO 6 BETA · MEMBERSHIP</Label><Label style={{fontSize:28,fontWeight:'900',marginBottom:13}}>Membership control.</Label>
+  <Label muted style={{lineHeight:22,marginBottom:19}}>Odeber pouze trial, nebo celé členství. Před potvrzením uvidíš původní plán, cílový plán, rozsah zásahu a důvod. Každá změna se ukládá do auditní historie klienta.</Label>
   {!review&&<Chips items={clients.map(title)} value={title(target)} onChange={v=>{Target(clients.find(x=>title(x)===v).id);Scope('all');ErrorText('');}}/>}
-  <Panel style={{marginVertical:17}}><Label style={{fontSize:20,fontWeight:'800'}}>{target.name}</Label><Label muted style={{marginTop:10,lineHeight:23}}>Aktivní plán: {target.tier}{target.planTrial?' · Trial':''}{target.planTrial?'\nPůvodní plán: '+target.planTrial.baseTier:''}</Label></Panel>
+  <Panel style={{marginVertical:17}}><Label style={{fontSize:20,fontWeight:'800'}}>{target.name}</Label><Label muted style={{marginTop:10,lineHeight:23}}>Aktivní plán: {target.tier}{target.planTrial?' · Trial':''}{target.planTrial?'\nPůvodní plán: '+target.planTrial.baseTier:''}</Label><Label muted style={{fontSize:11,lineHeight:18,marginTop:9}}>Client ID: {target.id.slice(-12)} · Karty: {(target.cards||[]).length} · Body: {(target.points||0).toLocaleString('cs-CZ')}</Label></Panel>
   {review?<>
    <Panel style={{borderColor:'#D75269',borderWidth:1}}><Label style={{fontWeight:'800',color:'#B32B46'}}>Potvrzení odebrání</Label><Label style={{marginTop:13,lineHeight:23}}>Nový plán: {review.scope==='trial'?target.planTrial?.baseTier:'Silver'}</Label><Label muted style={{marginTop:12,lineHeight:21}}>{review.reason}</Label><Label muted style={{marginTop:12,lineHeight:21}}>Oprávnění a maximální limity se přizpůsobí novému plánu. Zaplacené designy, body a transakce se nemažou.</Label>{review.scope==='all'&&target.coreMembership&&<Label style={{marginTop:12,lineHeight:21,color:'#B32B46'}}>Ukončí se také místní závazek Core. Záznam zůstane v historii. Nejde o zrušení skutečné externí smlouvy.</Label>}</Panel>
    <Button title={review.scope==='trial'?'Potvrdit odebrání trialu':'Potvrdit odebrání členství'} style={{marginTop:22}} onPress={()=>{if(dispatch(review,'Členství klienta bylo upraveno.'))onDone();else Review(null);}}/>

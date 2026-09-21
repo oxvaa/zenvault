@@ -33,7 +33,7 @@ export function SettingsHome({u,data,ui,theme,onOpen,onGo,onSetting,onLogout}){
    <Row icon="finger-print-outline" title="Soukromí a oznámení" sub="Viditelnost částek a tvoje preference" onPress={()=>profile('privacy')}/>
   </Panel>
   <Section title="Vzhled a přehled"/><Panel>
-   <Row icon="sparkles-outline" title="Motiv aplikace" value={theme.name} sub="Theme Studio · 33 motivů" onPress={()=>onOpen('appThemes')}/>
+   <Row icon="sparkles-outline" title="Motiv aplikace" value={theme.name} sub="Theme Studio · 36 motivů" onPress={()=>onOpen('appThemes')}/>
    <Row icon="contrast-outline" title="Vzhled" value={theme.forceLight?'Vždy světlý':{light:'Světlý',dark:'Tmavý',system:'Systémový'}[data.theme]} onPress={()=>onOpen('theme')}/>
    <Row icon="water-outline" title="Liquid Glass" sub="Jemné průsvitné vrstvy" right={<Switch accessibilityLabel="Liquid Glass" value={data.glass} onValueChange={v=>onSetting('glass',v)} trackColor={{true:t.button}}/>}/>
    <Row icon="albums-outline" title="Režim zobrazení přehledu" value={HOME_MODES.find(m=>m.id===normalizeHomeMode(u.homeMode)).name} onPress={()=>onOpen('homeMode')}/>

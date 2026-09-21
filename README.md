@@ -1,6 +1,6 @@
-# Zenvault Bank & Co. 5.0.0 — Your Money OS
+# Zenvault Bank & Co. 5.1.0 — Your Money OS
 
-Zenvault 5 je major update lokálního Expo / Snack bankovního frontendu. Zachovává datový základ a funkce řady 4.x, ale přestavuje hlavní práci s aplikací kolem **Financial Command Center**, Zenvault Intelligence, univerzálního Command vyhledávání, Card Center 5, Shared Vaults, Subscriptions Hub, Purchase Hub, Security Center 5, Plan Center 5, Zenvault Moments a Admin Studio 5.
+Zenvault 5 je major update lokálního Expo / Snack bankovního frontendu. Zachovává datový základ a funkce řady 4.x, ale přestavuje hlavní práci s aplikací kolem **Financial Command Center**, Zenvault Intelligence, univerzálního Command vyhledávání, Card Center 5, Shared Vaults, Subscriptions Hub, Purchase Hub, Security Center 5, Plan Center 5, Zenvault Moments a **Admin Studio 6 Beta**.
 
 Jde o funkční lokální prototyp. Neprovádí skutečné bankovní převody, KYC, vydávání platebních karet, passkeys ani externí zrušení předplatného. Místní data zůstávají v úložišti zařízení.
 
@@ -15,7 +15,7 @@ Jde o funkční lokální prototyp. Neprovádí skutečné bankovní převody, K
 - **Purchase Hub:** rozšířený detail transakce s merchant identitou, kategorií, kartou, kanálem, zemí, referencí, dokumenty a návazností na split / request flow.
 - **Security Center 5:** soustředí PIN, biometriku, trusted device, bezpečnostní historii a emergency controls. Passkey je zatím pouze připravená UI vrstva pro budoucí nativní integraci.
 - **Plan Center 5:** membership, rewards, Card Gallery a Theme Studio v jednom centru bez přidávání dalších tarifů.
-- **Admin Studio 5:** balance, transakce, body, membership / trial a bankovní komunikace doplněné snapshotem a client timeline.
+- **Admin Studio 6 Beta:** detailní klientský cockpit pro zůstatky včetně řízeného záporného zůstatku a důvodu, bankovní transakce, body, membership / trial, karty, bezpečnost, komunikaci a audit timeline.
 - **Zenvault Moments:** nový vizuální feed milníků, security událostí a rewards. Fullscreen receipt a Welcome 5 používají stejný směr vizuální prezentace.
 - **Welcome to Zenvault 5:** jednorázový pětidílný cinematic onboarding po prvním otevření verze 5 na zařízení.
 - **Smart Transfer 5:** zachovává funkční flow z 4.6 — kontakt / IBAN, okamžitá, plánovaná a opakovaná platba, split, request, QR, cover, emoji a animovaný receipt.
@@ -29,11 +29,11 @@ Zenvault 5 používá stejné hlavní úložiště `zenvault.bank.co.v2`. Migra�
 
 Vývojová distribuční cesta pro tablet je nyní **GitHub-first**. Zdrojový projekt je uložen v `oxvaa/zenvault`. Pro každou verzi vytvoř `snack-payload-<verze>.json`, aktualizuj root `index.html` a publikuj přes GitHub Pages. Stránka pak pomocí Snack SDK vytvoří nový multi-file Snack včetně assetů a dependencies bez ručního přesouvání souborů uvnitř Snack editoru.
 
-Pro 5.0.0:
+Pro 5.1.0:
 
 `python3 verify_project.py`
 
-`python3 prepare_snack.py snack-payload-5.0.0.json`
+`python3 prepare_snack.py snack-payload-5.1.0.json`
 
 Projekt zůstává na Expo SDK 54. Assets jsou beze změny proti 4.6.1: 50 JPG v `assets/cards`, 8 PNG v `assets/brands`, plus `mastercard.png` a `visa.png` v `assets/`.
 
@@ -362,7 +362,7 @@ Mobilní Chromium ověřilo kompletní registraci, chybná i správná hesla, e-
 
 ## Začátek
 
-Výchozí profil Klient Zenvault má Ultra a nulové zůstatky. Jméno změníte v Nastavení. Nastavení → Režim aplikace → Administrátor dovolí nastavit zůstatek nebo vytvořit příchozí/odchozí transakci. Úprava zůstatku má vlastní kategorii Administrace a nezvyšuje příjmy či výdaje v Insights. Ručně vytvořené běžné transakce se do přehledů počítají, ale nevytvářejí cashback ani body.
+Výchozí profil Klient Zenvault má Ultra a nulové zůstatky. Jméno změníte v Nastavení. Nastavení → Režim aplikace → Administrátor zpřístupní Admin Studio 6 Beta. Zůstatek lze nastavit i do mínusu; při záporném výsledku je povinný bankovní důvod a změna se zapíše do audit timeline. Bankovní úprava zůstatku používá kategorii Banka a nezvyšuje příjmy ani výdaje v Insights. Transakce vytvořené přes Admin Studio mají v Purchase Hub jako původ uvedeno Banka, ne Administrace. Ručně vytvořené běžné transakce se do přehledů počítají, ale nevytvářejí cashback ani body.
 
 Všechny nové moduly jsou na Přehledu pod Zenvault Life. Home Widgets mění pořadí a viditelnost sedmi widgetů pro každý profil. Business získá jiný přehled; aktivaci v tomto lokálním prostředí najdete v Administrátoru → Zenvault Life → Business. Změny členství nic neúčtují.
 
