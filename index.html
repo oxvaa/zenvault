@@ -4,27 +4,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f5f7fb">
-<title>Zenvault 5.1.1 Hotfix → Expo Snack</title>
+<title>Zenvault 5.2.0 → Expo Snack</title>
 <style>
 :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#12161d;background:#f5f7fb}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;padding:28px;display:grid;place-items:center;background:radial-gradient(circle at 80% 0,#ffe6e9 0,transparent 35%),linear-gradient(180deg,#fbfcfe,#f1f4f8)}
-main{width:min(760px,100%);background:#ffffffdf;border:1px solid #fff;border-radius:34px;padding:32px;box-shadow:0 24px 80px #16283a1a;backdrop-filter:blur(22px)}
+body{margin:0;min-height:100vh;padding:28px;display:grid;place-items:center;background:radial-gradient(circle at 82% 0,#ffe2e7 0,transparent 36%),linear-gradient(180deg,#fbfcfe,#f1f4f8)}
+main{width:min(780px,100%);background:#ffffffdf;border:1px solid #fff;border-radius:34px;padding:32px;box-shadow:0 24px 80px #16283a1a;backdrop-filter:blur(22px)}
 .eyebrow{font-size:11px;letter-spacing:2px;font-weight:850;color:#728294}
 .hero{display:flex;gap:18px;align-items:flex-start;justify-content:space-between}
 .hero h1{font-size:clamp(32px,6vw,52px);letter-spacing:-2.2px;line-height:.98;margin:9px 0 12px}
-.hero p{color:#687584;line-height:1.55;margin:0;max-width:560px}
+.hero p{color:#687584;line-height:1.55;margin:0;max-width:580px}
 .badge{flex:0 0 auto;border-radius:18px;padding:11px 14px;background:#fff0f2;color:#c70020;font-weight:850;font-size:12px}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:28px 0 18px}
-.stat{padding:18px;border-radius:22px;background:#f4f6f9;text-align:center}.stat strong{display:block;font-size:23px}.stat span{display:block;font-size:9px;letter-spacing:1.2px;color:#8792a0;margin-top:5px;font-weight:800}
-.fix{padding:17px;border:1px solid #f0d7db;background:#fff6f7;border-radius:20px;margin:13px 0 22px}
-.fix b{display:block;margin-bottom:7px}.fix span{font-size:12px;line-height:1.55;color:#687584}
-.go{width:100%;border:0;border-radius:19px;background:#111418;color:#fff;font-weight:850;font-size:15px;min-height:57px;cursor:pointer}.go:disabled{opacity:.45}
+.stat{padding:18px;border-radius:22px;background:#f4f6f9;text-align:center}
+.stat strong{display:block;font-size:23px}
+.stat span{display:block;font-size:9px;letter-spacing:1.2px;color:#8792a0;margin-top:5px;font-weight:800}
+.features{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:14px 0 22px}
+.feature{border:1px solid #edf0f4;border-radius:17px;padding:13px 14px;font-size:12px;color:#556170;background:#fff}
+.feature b{color:#14191f}
+.go{width:100%;border:0;border-radius:19px;background:#111418;color:#fff;font-weight:850;font-size:15px;min-height:57px;cursor:pointer}
+.go:disabled{opacity:.45}
 .status{white-space:pre-wrap;margin:13px 0 0;padding:15px;border-radius:17px;background:#f4f6f9;color:#4f5a67;font-size:12px;line-height:1.55;min-height:52px}
 .status.error{background:#fff0ef;color:#9c362e}.status.ok{background:#edf9f1;color:#237247}
 .open{display:none;margin-top:12px;text-decoration:none;text-align:center;padding:16px;border-radius:18px;border:1px solid #dfe5ec;color:#111418;font-weight:850;background:white}
 .note{color:#8792a0;font-size:10px;line-height:1.55;margin:16px 2px 0}
-@media(max-width:560px){body{padding:14px}main{padding:23px;border-radius:28px}.badge{display:none}}
+@media(max-width:560px){body{padding:14px}main{padding:23px;border-radius:28px}.features{grid-template-columns:1fr}.badge{display:none}}
 </style>
 </head>
 <body>
@@ -32,10 +36,10 @@ main{width:min(760px,100%);background:#ffffffdf;border:1px solid #fff;border-rad
   <div class="hero">
     <div>
       <div class="eyebrow">ZENVAULT® BANK & CO.</div>
-      <h1>Zenvault 5.1.1<br>Admin Hotfix</h1>
-      <p>Hotfix pro Admin Studio 6 Beta. Vychází z aktuálního Zenvault 5.1.0 payloadu a před vytvořením Snacku aplikuje opravu záporného zůstatku.</p>
+      <h1>Zenvault 5.2<br>Payment Control</h1>
+      <p>Admin Studio 6 Beta získává správu již zaúčtovaných plateb, refund statusy, auditní odstranění a rozšířený původ platby včetně Mzdy.</p>
     </div>
-    <div class="badge">5.1.1</div>
+    <div class="badge">5.2.0</div>
   </div>
 
   <div class="stats">
@@ -44,22 +48,23 @@ main{width:min(760px,100%);background:#ffffffdf;border:1px solid #fff;border-rad
     <div class="stat"><strong id="depStat">—</strong><span>DEPENDENCIES</span></div>
   </div>
 
-  <div class="fix">
-    <b>Admin negative-balance transaction fix</b>
-    <span>Bankovní transakce z Admin Studia lze zaúčtovat i tehdy, když je účet již v záporném zůstatku nebo po transakci zůstane záporný. Platí i pro odložené admin transakce. Běžné klientské platby zůstávají beze změny.</span>
+  <div class="features">
+    <div class="feature"><b>Payment Editor</b> · Zaúčtováno / Nezaúčtováno / Vráceno</div>
+    <div class="feature"><b>Refund reasons</b> · důvod + klientská informace + audit</div>
+    <div class="feature"><b>Delete payment</b> · odstranění z historie s korekcí zůstatku</div>
+    <div class="feature"><b>Payment origin</b> · Banka, Mzda, Obchodník, Refundace, Úřad</div>
   </div>
 
-  <button class="go" id="go">Vytvořit nový Snack 5.1.1</button>
-  <pre class="status" id="status">Připraveno. Zdroj: oxvaa/zenvault · payload 5.1.0 + hotfix 5.1.1</pre>
+  <button class="go" id="go">Vytvořit nový Snack 5.2.0</button>
+  <pre class="status" id="status">Připraveno. Zdroj: oxvaa/zenvault · 5.1.0 payload + 5.1.1 + 5.2.0 upgrady</pre>
   <a class="open" id="open" target="_blank" rel="noopener">Otevřít nový Snack</a>
-
-  <div class="note">Hotfix nemění bankovní data ani starší Snack. Zdrojový payload 5.1.0 se načte z GitHubu, opraví se pouze App.js a engine.js a následně se vytvoří nový Snack 5.1.1.</div>
+  <div class="note">Importer nemění starší Snack ani lokální profily. Načte aktuální 5.1.0 payload z GitHubu, aplikuje předchozí 5.1.1 hotfix a nový Admin Studio 6 Payment Control upgrade.</div>
 </main>
 
 <script type="module">
 const statusEl=document.querySelector('#status');
 const go=document.querySelector('#go');
-const open=document.querySelector('#open');
+const openLink=document.querySelector('#open');
 const codeStat=document.querySelector('#codeStat');
 const assetStat=document.querySelector('#assetStat');
 const depStat=document.querySelector('#depStat');
@@ -70,11 +75,8 @@ const setStatus=(text,kind='')=>{
 };
 
 async function loadSdk(){
-  try{
-    return await import('https://cdn.jsdelivr.net/npm/snack-sdk@6.6.2/+esm');
-  }catch(first){
-    return await import('https://esm.sh/snack-sdk@6.6.2?bundle');
-  }
+  try{return await import('https://cdn.jsdelivr.net/npm/snack-sdk@6.6.2/+esm')}
+  catch(first){return await import('https://esm.sh/snack-sdk@6.6.2?bundle')}
 }
 
 function replaceOnce(source,oldText,newText,label){
@@ -83,39 +85,340 @@ function replaceOnce(source,oldText,newText,label){
   return source.replace(oldText,newText);
 }
 
-function applyHotfix(payload){
-  if(!payload?.code?.['App.js']?.contents) throw new Error('Payload neobsahuje App.js.');
-  if(!payload?.code?.['engine.js']?.contents) throw new Error('Payload neobsahuje engine.js.');
+function apply52(payload){
+  const code=payload?.code;
+  if(!code?.['App.js']?.contents||!code?.['engine.js']?.contents||!code?.['AdminReasons.js']?.contents||!code?.['PaymentTiming.js']?.contents||!code?.['AdminStudio6.js']?.contents){
+    throw new Error('Payload neobsahuje všechny potřebné moduly.');
+  }
 
-  let app=payload.code['App.js'].contents;
-  let engine=payload.code['engine.js'].contents;
+  let app=code['App.js'].contents;
+  let engine=code['engine.js'].contents;
+  let reasons=code['AdminReasons.js'].contents;
+  let timing=code['PaymentTiming.js'].contents;
+  let studio=code['AdminStudio6.js'].contents;
 
-  const uiGate="if(!delay&&projected<0)return fail('Tato transakce by vytvořila záporný zůstatek. Použij nástroj Změnit zůstatek a zvol důvod.');";
-  app=replaceOnce(app,uiGate,'','App.js negative-balance gate');
+  // Keep the previous 5.1.1 negative-balance admin transaction hotfix.
+  app=replaceOnce(
+    app,
+    "if(!delay&&projected<0)return fail('Tato transakce by vytvořila záporný zůstatek. Použij nástroj Změnit zůstatek a zvol důvod.');",
+    '',
+    '5.1.1 App hotfix'
+  );
+  engine=replaceOnce(
+    engine,
+    "check(Number.isSafeInteger(balance)&&balance>=0,'Nedostatek prostředků nebo překročený limit zůstatku. Pro záporný zůstatek použij Úpravu zůstatku.');",
+    "check(Number.isSafeInteger(balance),'Částka překračuje povolený limit zůstatku.');",
+    '5.1.1 engine hotfix'
+  );
+  engine=replaceOnce(
+    engine,
+    "if(balance<0){x.status='waitingFunds';remaining.push(x);continue;}",
+    '',
+    '5.1.1 delayed payment hotfix'
+  );
 
-  const oldIntro='Transakce vytvořená tímto nástrojem bude v detailu označena jako <Label style={{fontWeight:\'800\'}}>Banka</Label>, ne Administrace.';
-  const newIntro='Transakce vytvořená tímto nástrojem bude v detailu označena jako <Label style={{fontWeight:\'800\'}}>Banka</Label>, ne Administrace. Bankovní transakci lze zaúčtovat i při záporném zůstatku; příchozí platba dluh sníží a odchozí jej může dále změnit.';
-  app=replaceOnce(app,oldIntro,newIntro,'App.js Admin Studio info');
+  // Admin reasons + payment origins.
+  reasons=replaceOnce(
+    reasons,
+    "export const negativeBalanceReasonText=id=>negativeBalanceReason(id)?.text||'';",
+`export const negativeBalanceReasonText=id=>negativeBalanceReason(id)?.text||'';
 
-  app=app.replace('Verze 5.1.0','Verze 5.1.1');
+export const PAYMENT_ORIGINS=['Banka','Mzda','Obchodník','Refundace','Úřad'];
 
-  const oldEngineGate="check(Number.isSafeInteger(balance)&&balance>=0,'Nedostatek prostředků nebo překročený limit zůstatku. Pro záporný zůstatek použij Úpravu zůstatku.');";
-  const newEngineGate="check(Number.isSafeInteger(balance),'Částka překračuje povolený limit zůstatku.');";
-  engine=replaceOnce(engine,oldEngineGate,newEngineGate,'engine.js admin transaction gate');
+export const RETURNED_PAYMENT_REASONS=[
+ {id:'nonstandard',title:'Platba neproběhla dle standardu',text:'Velmi nás to mrzí, ale tato platba neproběhla dle standardu. Prosím opakujte platbu.'},
+ {id:'insufficient-funds',title:'Nedostatek prostředků',text:'V době transakce nebyl na účtu dostatek finančních prostředků.'},
+ {id:'merchant-cancelled',title:'Platba zrušena obchodníkem',text:'Obchodník platbu zrušil nebo nedokončil její zpracování. Částka byla vrácena.'},
+ {id:'duplicate',title:'Duplicitní platba',text:'Platba byla vyhodnocena jako duplicitní a její dopad byl vrácen.'},
+ {id:'processing-error',title:'Technická chyba při zpracování',text:'Při zpracování platby došlo k technické chybě. Částka byla vrácena.'},
+ {id:'other',title:'Jiný důvod',text:'Jiný důvod vrácení platby. V administraci doplň vlastní vysvětlení do poznámky.'},
+];
 
-  const delayedGate="if(balance<0){x.status='waitingFunds';remaining.push(x);continue;}";
-  engine=replaceOnce(engine,delayedGate,'','engine.js delayed admin gate');
+export const returnedPaymentReason=id=>RETURNED_PAYMENT_REASONS.find(x=>x.id===id)||null;`,
+    'AdminReasons 5.2'
+  );
 
-  payload.code['App.js'].contents=app;
-  payload.code['engine.js'].contents=engine;
-  payload.manifest={...(payload.manifest||{}),name:'Zenvault Bank & Co. 5.1.1',description:'Zenvault 5.1.1 — Admin Studio 6 Beta negative balance transaction hotfix.'};
+  // Status labels.
+  timing=replaceOnce(
+    timing,
+    "export const paymentStatus=x=>x.status==='waitingFunds'?'Čeká na prostředky':x.status==='pending'?'Čeká na připsání':x.status==='blocked'?'Připsání pozastaveno':'Zaúčtováno';",
+    "export const paymentStatus=x=>x.status==='refunded'?'Vráceno':x.status==='unposted'?'Nezaúčtováno':x.status==='waitingFunds'?'Čeká na prostředky':x.status==='pending'?'Čeká na připsání':x.status==='blocked'?'Připsání pozastaveno':'Zaúčtováno';",
+    'Payment status labels'
+  );
+
+  // Engine imports.
+  engine=replaceOnce(
+    engine,
+    "import {negativeBalanceReason,negativeBalanceReasonText} from './AdminReasons';",
+    "import {negativeBalanceReason,negativeBalanceReasonText,returnedPaymentReason,PAYMENT_ORIGINS} from './AdminReasons';",
+    'engine AdminReasons import'
+  );
+
+  // Refunded/unposted movements no longer count in financial analytics.
+  engine=replaceOnce(
+    engine,
+    "export function isExpense(x){return x.value<0&&",
+    "export function isExpense(x){return !['refunded','unposted'].includes(x.status)&&x.value<0&&",
+    'isExpense status filter'
+  );
+  engine=replaceOnce(
+    engine,
+    "if(x.value>0&&!['Směna','Spoření','Administrace','Banka','Junior převod'].includes(x.category)",
+    "if(!['refunded','unposted'].includes(x.status)&&x.value>0&&!['Směna','Spoření','Administrace','Banka','Junior převod'].includes(x.category)",
+    'income status filter'
+  );
+
+  // Origin validation + storage for new admin transactions.
+  engine=replaceOnce(
+    engine,
+    "check(['Příchozí','Odchozí'].includes(a.direction),'Zvol směr platby.');check(CREDIT_DELAYS.some(x=>x.days===a.delayDays)",
+    "check(['Příchozí','Odchozí'].includes(a.direction),'Zvol směr platby.');check(PAYMENT_ORIGINS.includes(a.origin||'Banka'),'Zvol platný původ platby.');check(CREDIT_DELAYS.some(x=>x.days===a.delayDays)",
+    'origin validation'
+  );
+  engine=replaceOnce(
+    engine,
+    "origin:'Banka',channel:'Banka'",
+    "origin:a.origin||'Banka',channel:'Banka'",
+    'origin storage'
+  );
+
+  // Payment history management action.
+  engine=replaceOnce(
+    engine,
+    "case 'adminBalance':{",
+`case 'adminPaymentManage':{
+  check(d.mode==='Administrátor','Správa historie plateb vyžaduje režim Administrátor.');
+  const target=d.users.find(x=>x.id===a.target);
+  check(target,'Klient nebyl nalezen.');
+  const index=target.transactions.findIndex(x=>x.id===a.transactionId);
+  check(index>=0,'Platba už v historii není dostupná.');
+  const item=target.transactions[index];
+
+  check(item.adminAction!=='balance-adjustment','Bankovní úpravu zůstatku spravuj přes nástroj Změnit zůstatek.');
+  check(!['exchange','vault','internal'].includes(item.kind),'Tento interní pohyb nelze upravit jako samostatnou platbu.');
+  check(!(item.kind==='transfer'&&item.target),'Místní převod mezi profily nelze upravit pouze na jedné straně.');
+  check(['posted','unposted','refunded','delete','origin'].includes(a.action),'Neplatná akce správy platby.');
+
+  if(a.action==='origin'){
+    check(PAYMENT_ORIGINS.includes(a.origin),'Zvol platný původ platby.');
+    const before=item.origin||'Banka';
+    item.origin=a.origin;
+    item.adminEdited=true;
+    item.adminEditedAt=date;
+    target.adminLog.unshift({id:makeId(),name:'Úprava původu platby · '+item.name,transactionId:item.id,before,after:a.origin,date,actor:u.id});
+    break;
+  }
+
+  const wasReversed=['unposted','refunded'].includes(item.status);
+  const willReverse=['unposted','refunded','delete'].includes(a.action);
+
+  if(!wasReversed&&willReverse){
+    const balance=target.balances[item.currency]-item.value;
+    check(Number.isSafeInteger(balance),'Úprava by překročila limit zůstatku.');
+    target.balances[item.currency]=balance;
+  }else if(wasReversed&&!willReverse){
+    const balance=target.balances[item.currency]+item.value;
+    check(Number.isSafeInteger(balance),'Obnovení by překročilo limit zůstatku.');
+    target.balances[item.currency]=balance;
+  }
+
+  if(a.action==='delete'){
+    target.transactions.splice(index,1);
+    target.adminLog.unshift({id:makeId(),name:'Odstranění platby z historie · '+item.name,transactionId:item.id,value:item.value,currency:item.currency,previousStatus:item.status||'posted',date,actor:u.id});
+    break;
+  }
+
+  if(a.action==='refunded'){
+    const reason=returnedPaymentReason(a.reason);
+    check(reason,'Zvol důvod vrácení platby.');
+    if(a.reason==='other')check(String(a.note||'').trim().length>=5,'U jiného důvodu doplň vlastní vysvětlení.');
+    item.status='refunded';
+    item.refundReason=a.reason;
+    item.refundReasonText=a.reason==='other'?String(a.note||'').trim():reason.text;
+    item.refundedAt=date;
+    item.adminEdited=true;
+    item.adminEditedAt=date;
+    target.notifications.unshift({id:makeId(),title:'Platba '+item.name+' byla vrácena',body:item.refundReasonText,date});
+  }else if(a.action==='unposted'){
+    item.status='unposted';
+    item.unpostedAt=date;
+    item.adminEdited=true;
+    item.adminEditedAt=date;
+    delete item.refundReason;
+    delete item.refundReasonText;
+    delete item.refundedAt;
+    target.notifications.unshift({id:makeId(),title:'Platba '+item.name+' je nezaúčtovaná',body:'Banka upravila stav této platby v historii účtu.',date});
+  }else if(a.action==='posted'){
+    item.status='posted';
+    item.adminEdited=true;
+    item.adminEditedAt=date;
+    delete item.unpostedAt;
+    delete item.refundReason;
+    delete item.refundReasonText;
+    delete item.refundedAt;
+    target.notifications.unshift({id:makeId(),title:'Platba '+item.name+' byla zaúčtována',body:'Banka obnovila stav platby v historii účtu.',date});
+  }
+
+  target.adminLog.unshift({id:makeId(),name:'Úprava stavu platby · '+item.name,transactionId:item.id,status:item.status,reason:item.refundReason||null,reasonText:item.refundReasonText||'',date,actor:u.id});
+  break;
+}
+ case 'adminBalance':{`,
+    'adminPaymentManage action'
+  );
+
+  // App imports.
+  app=replaceOnce(
+    app,
+    "import {NEGATIVE_BALANCE_REASONS,negativeBalanceReason} from './AdminReasons';",
+    "import {NEGATIVE_BALANCE_REASONS,negativeBalanceReason,RETURNED_PAYMENT_REASONS,returnedPaymentReason,PAYMENT_ORIGINS} from './AdminReasons';",
+    'App AdminReasons import'
+  );
+
+  app=replaceOnce(
+    app,
+    "const spend=useMemo(()=>u.transactions.filter(x=>x.currency==='CZK'&&x.value<0&&",
+    "const spend=useMemo(()=>u.transactions.filter(x=>x.currency==='CZK'&&!['refunded','unposted'].includes(x.status)&&x.value<0&&",
+    'App spending status filter'
+  );
+
+  // Admin transaction payload and origin UI.
+  app=replaceOnce(
+    app,
+    "reason:form.reason,op:form.op},form.delayDays?'Platba čeká na připsání.':'Platba byla zaúčtována bankou.'",
+    "reason:form.reason,origin:form.origin||'Banka',op:form.op},form.delayDays?'Platba čeká na připsání.':'Platba byla zaúčtována bankou.'",
+    'admin transaction origin dispatch'
+  );
+
+  app=replaceOnce(
+    app,
+    '<Row title="Klient" value={target.name}/><Row title="Původ" value="Banka"/><Row title="Směr"',
+    '<Row title="Klient" value={target.name}/><Row title="Původ" value={form.origin||\'Banka\'}/><Row title="Směr"',
+    'admin transaction review origin'
+  );
+
+  app=replaceOnce(
+    app,
+    "<Section title=\"Směr a účet\"/><Chips items={['Příchozí','Odchozí']} value={form.direction||'Příchozí'} onChange={v=>f('direction',v)}/><Chips items={['CZK','EUR','USD','GBP']} value={cur} onChange={v=>f('currency',v)}/>",
+    "<Section title=\"Směr a účet\"/><Chips items={['Příchozí','Odchozí']} value={form.direction||'Příchozí'} onChange={v=>f('direction',v)}/><Chips items={['CZK','EUR','USD','GBP']} value={cur} onChange={v=>f('currency',v)}/><Section title=\"Původ platby\"/><Chips items={PAYMENT_ORIGINS} value={form.origin||'Banka'} onChange={v=>f('origin',v)}/>",
+    'admin origin selector'
+  );
+
+  // Purchase Hub admin variables.
+  app=replaceOnce(
+    app,
+    "if(type==='transaction'){const x=transactionFeed(u).find(t=>t.id===sheet.transaction.id)||sheet.transaction;const merchant=merchantForTransaction(x);const usedCard=u.cards.find(c=>c.id===x.card);return <>",
+    "if(type==='transaction'){const x=transactionFeed(u).find(t=>t.id===sheet.transaction.id)||sheet.transaction;const merchant=merchantForTransaction(x);const usedCard=u.cards.find(c=>c.id===x.card);const adminEditable=data.mode==='Administrátor'&&u.transactions.some(t=>t.id===x.id)&&x.adminAction!=='balance-adjustment'&&!['exchange','vault','internal'].includes(x.kind)&&!(x.kind==='transfer'&&x.target);const adminStatus=x.status==='refunded'?'Vráceno':x.status==='unposted'?'Nezaúčtováno':'Zaúčtováno';const selectedAdminStatus=form.paymentEditStatus||adminStatus;const selectedRefundReason=returnedPaymentReason(form.refundReason);return <>",
+    'transaction detail admin context'
+  );
+
+  app=replaceOnce(
+    app,
+    '{x.admin&&<Row title="Původ" value="Banka"/>}',
+    '{(x.origin||x.admin)&&<Row title="Původ" value={x.origin||\'Banka\'}/>}',
+    'transaction origin display'
+  );
+
+  // Only delayed payments show ETA and delay note.
+  app=replaceOnce(
+    app,
+    "{x.status&&x.status!=='posted'&&<Row title=\"Předpokládané připsání\"",
+    "{['pending','waitingFunds','blocked'].includes(x.status)&&<Row title=\"Předpokládané připsání\"",
+    'ETA status condition'
+  );
+
+  app=replaceOnce(
+    app,
+    "{x.status&&x.status!=='posted'&&<><PaymentNote",
+    "{['pending','waitingFunds','blocked'].includes(x.status)&&<><PaymentNote",
+    'PaymentNote status condition'
+  );
+
+  app=replaceOnce(
+    app,
+    "${x.status&&x.status!=='posted'?`",
+    "${['pending','waitingFunds','blocked'].includes(x.status)?`",
+    'share ETA condition'
+  );
+
+  // Refund reason + audit timestamp in detail.
+  app=replaceOnce(
+    app,
+    "{x.emoji&&<Label style={{fontSize:32,marginTop:12}}>{x.emoji}</Label>}{x.note&&<Label muted style={{lineHeight:21,padding:10}}>{x.note}</Label>}</Panel>",
+    "{x.status==='refunded'&&x.refundReasonText&&<Label muted style={{lineHeight:21,padding:10}}>Důvod vrácení: {x.refundReasonText}</Label>}{x.adminEditedAt&&<Row title=\"Poslední admin úprava\" value={new Date(x.adminEditedAt).toLocaleString('cs-CZ')}/>} {x.emoji&&<Label style={{fontSize:32,marginTop:12}}>{x.emoji}</Label>}{x.note&&<Label muted style={{lineHeight:21,padding:10}}>{x.note}</Label>}</Panel>",
+    'refund detail'
+  );
+
+  // Admin payment control UI.
+  app=replaceOnce(
+    app,
+    "<Row icon=\"help-buoy-outline\" title=\"Nahlásit problém\" sub=\"Lokální prototyp dispute flow\" onPress={()=>setToast('Požadavek byl připraven. Připojení na skutečné dispute centrum zatím není aktivní.')}/></Panel><Button style={{marginTop:18}} title=\"Sdílet přehled\"",
+`<Row icon="help-buoy-outline" title="Nahlásit problém" sub="Lokální prototyp dispute flow" onPress={()=>setToast('Požadavek byl připraven. Připojení na skutečné dispute centrum zatím není aktivní.')}/></Panel>
+{adminEditable&&<>
+ <Section title="Admin Studio 6 Beta · Správa platby"/>
+ <Panel>
+  <Row icon="construct-outline" title="Stav platby" sub="Změna stavu upraví i lokální zůstatek, aby historie a účet zůstaly konzistentní." value={paymentStatus(x)}/>
+  <Section title="Původ"/>
+  <Chips items={PAYMENT_ORIGINS} value={form.origin||x.origin||'Banka'} onChange={v=>f('origin',v)}/>
+  <Button title="Uložit původ platby" secondary onPress={()=>dispatchV3({type:'adminPaymentManage',target:u.id,transactionId:x.id,action:'origin',origin:form.origin||x.origin||'Banka',op:Date.now().toString(36)},'Původ platby byl upraven.')}/>
+  <Section title="Stav"/>
+  <Chips items={['Zaúčtováno','Nezaúčtováno','Vráceno']} value={selectedAdminStatus} onChange={v=>f('paymentEditStatus',v)}/>
+  {selectedAdminStatus==='Vráceno'&&<>
+   <Section title="Důvod vrácení"/>
+   {RETURNED_PAYMENT_REASONS.map(r=><Pressable key={r.id} accessibilityRole="button" onPress={()=>f('refundReason',r.id)} style={{padding:14,marginBottom:8,borderRadius:16,borderWidth:1.5,borderColor:form.refundReason===r.id?t.accent:t.border,backgroundColor:t.panel}}>
+    <Label style={{fontWeight:'800'}}>{r.title}{form.refundReason===r.id?' ✓':''}</Label>
+    <Label muted style={{fontSize:11,lineHeight:18,marginTop:6}}>{r.text}</Label>
+   </Pressable>)}
+   {form.refundReason==='other'&&<Field label="Vlastní důvod vrácení" value={form.refundNote||''} onChangeText={v=>f('refundNote',v)} multiline placeholder="Doplň vysvětlení pro klienta a audit"/>}
+  </>}
+  <Button style={{marginTop:14}} title="Uložit stav platby" onPress={()=>{
+   const action=selectedAdminStatus==='Vráceno'?'refunded':selectedAdminStatus==='Nezaúčtováno'?'unposted':'posted';
+   if(action==='refunded'&&!selectedRefundReason)return fail('Zvol důvod vrácení platby.');
+   if(action==='refunded'&&form.refundReason==='other'&&String(form.refundNote||'').trim().length<5)return fail('Doplň vlastní důvod vrácení.');
+   dispatchV3({type:'adminPaymentManage',target:u.id,transactionId:x.id,action,reason:form.refundReason,note:form.refundNote,op:Date.now().toString(36)},'Stav platby byl upraven.');
+  }}/>
+  {review?.type==='deletePayment'
+   ?<View style={{marginTop:16,padding:15,borderRadius:18,backgroundColor:dark?'#3A1118':'#FFF0F2',borderWidth:1,borderColor:dark?'#6E2531':'#F3CCD2'}}>
+     <Label style={{fontWeight:'900',color:dark?'#FF9AAA':'#B4233A'}}>Odstranit platbu z historie?</Label>
+     <Label muted style={{fontSize:11,lineHeight:18,marginTop:7}}>Platba zmizí z historie. Pokud byla zaúčtovaná, její dopad se zároveň vrátí v lokálním zůstatku. Auditní záznam v Admin Studio zůstane.</Label>
+     <Button title="Ano, odstranit platbu" style={{marginTop:13}} onPress={()=>{if(dispatchV3({type:'adminPaymentManage',target:u.id,transactionId:x.id,action:'delete',op:Date.now().toString(36)},'Platba byla odstraněna z historie.'))close();}}/>
+     <Button title="Zrušit" secondary style={{marginTop:8}} onPress={()=>setReview(null)}/>
+    </View>
+   :<Button title="Odstranit platbu z historie" secondary style={{marginTop:10}} onPress={()=>setReview({type:'deletePayment'})}/>}
+ </Panel>
+</>}
+<Button style={{marginTop:18}} title="Sdílet přehled"`,
+    'Admin payment control UI'
+  );
+
+  // Admin Studio default origin.
+  studio=replaceOnce(
+    studio,
+    "onPress={()=>action('adminTx',{currency:'CZK',direction:'Příchozí',delayDays:0,op:Date.now().toString(36)})}",
+    "onPress={()=>action('adminTx',{currency:'CZK',direction:'Příchozí',origin:'Banka',delayDays:0,op:Date.now().toString(36)})}",
+    'Admin Studio origin preset'
+  );
+
+  // Version label.
+  app=app.replace('Verze 5.1.0','Verze 5.2.0');
+
+  code['App.js'].contents=app;
+  code['engine.js'].contents=engine;
+  code['AdminReasons.js'].contents=reasons;
+  code['PaymentTiming.js'].contents=timing;
+  code['AdminStudio6.js'].contents=studio;
+
+  payload.manifest={
+    ...(payload.manifest||{}),
+    name:'Zenvault Bank & Co. 5.2.0',
+    description:'Zenvault 5.2.0 — Admin Studio 6 Beta Payment Control, refund states and payment origins.'
+  };
 
   return payload;
 }
 
 go.onclick=async()=>{
   go.disabled=true;
-  open.style.display='none';
+  openLink.style.display='none';
 
   try{
     setStatus('1/5 · Načítám Zenvault 5.1.0 payload z GitHubu…');
@@ -124,59 +427,65 @@ go.onclick=async()=>{
       'https://raw.githubusercontent.com/oxvaa/zenvault/main/snack-payload-5.1.0.json',
       {cache:'no-store'}
     );
-    if(!response.ok) throw new Error('Payload HTTP '+response.status);
+    if(!response.ok)throw new Error('Payload HTTP '+response.status);
 
     let payload=await response.json();
 
-    setStatus('2/5 · Aplikuji hotfix Admin Studio 6 Beta…');
-    payload=applyHotfix(payload);
+    setStatus('2/5 · Aplikuji 5.1.1 + Payment Control 5.2.0…');
+    payload=apply52(payload);
 
     const files=payload.code||{};
-    const code=Object.values(files).filter(x=>x?.type==='CODE').length;
-    const assets=Object.values(files).filter(x=>x?.type==='ASSET').length;
+    const codeCount=Object.values(files).filter(x=>x?.type==='CODE').length;
+    const assetCount=Object.values(files).filter(x=>x?.type==='ASSET').length;
     const dependencies=payload.dependencies||payload.manifest?.dependencies||{};
     const depCount=Object.keys(dependencies).length;
 
-    codeStat.textContent=code;
-    assetStat.textContent=assets;
+    codeStat.textContent=codeCount;
+    assetStat.textContent=assetCount;
     depStat.textContent=depCount;
 
-    if(!files['App.js']||!files['engine.js']) throw new Error('Chybí App.js nebo engine.js.');
-    if(code<1||assets<1||depCount<1) throw new Error('Payload není kompletní.');
+    if(!files['App.js']||!files['engine.js'])throw new Error('Chybí App.js nebo engine.js.');
+    if(codeCount<1||assetCount<1||depCount<1)throw new Error('Payload není kompletní.');
 
-    setStatus(`3/5 · Hotfix OK ✅\n${code} code / ${assets} assets / ${depCount} dependencies\nNačítám Expo Snack SDK…`);
+    setStatus(`3/5 · Upgrade OK ✅\n${codeCount} code / ${assetCount} assets / ${depCount} dependencies\nNačítám Expo Snack SDK…`);
 
     const {Snack}=await loadSdk();
 
-    setStatus(`4/5 · Sestavuji ${code+assets} souborů…`);
+    setStatus(`4/5 · Sestavuji ${codeCount+assetCount} souborů…`);
 
     const snack=new Snack({
-      name:payload.manifest?.name||'Zenvault Bank & Co. 5.1.1',
-      description:payload.manifest?.description||'Zenvault 5.1.1 hotfix.',
-      sdkVersion:payload.manifest?.sdkVersion||'54.0.0',
+      name:payload.manifest.name,
+      description:payload.manifest.description,
+      sdkVersion:payload.manifest.sdkVersion||'54.0.0',
       files,
       dependencies,
       online:false
     });
 
-    setStatus('5/5 · Ukládám nový Snack 5.1.1 na Expo…');
+    setStatus('5/5 · Ukládám nový Snack 5.2.0 na Expo…');
 
     const result=await snack.saveAsync({ignoreUser:true,isDraft:false});
     const state=await snack.getStateAsync();
     const id=result?.id||result?.snackId||result?.accountSnackId||state?.id;
 
-    if(!id) throw new Error('Expo Snack se uložil bez rozpoznatelného ID.');
+    if(!id)throw new Error('Expo Snack se uložil bez rozpoznatelného ID.');
 
     setStatus(
-      `HOTOVO ✅\nZenvault 5.1.1\nSnack ID: ${id}\nFiles: ${Object.keys(state.files||{}).length}\nDependencies: ${Object.keys(state.dependencies||{}).length}\n\nAdmin transakce nyní fungují i při záporném zůstatku.`,
+`HOTOVO ✅
+Zenvault 5.2.0
+Snack ID: ${id}
+Files: ${Object.keys(state.files||{}).length}
+Dependencies: ${Object.keys(state.dependencies||{}).length}
+
+Admin Studio 6 Payment Control je aktivní.`,
       'ok'
     );
 
-    open.href='https://snack.expo.dev/'+id;
-    open.style.display='block';
+    openLink.href='https://snack.expo.dev/'+id;
+    openLink.style.display='block';
 
   }catch(e){
-    setStatus('HOTFIX SE NEPODAŘIL ❌\n'+(e?.message||String(e)),'error');
+    setStatus('UPGRADE SE NEPODAŘIL ❌\n'+(e?.message||String(e)),'error');
   }finally{
     go.disabled=false;
   }
