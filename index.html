@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f5f7fb">
-<title>Zenvault 5.2.0 → Expo Snack</title>
+<title>Zenvault 5.3.0 → Expo Snack</title>
 <style>
 :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#12161d;background:#f5f7fb}
 *{box-sizing:border-box}
@@ -36,10 +36,10 @@ main{width:min(780px,100%);background:#ffffffdf;border:1px solid #fff;border-rad
   <div class="hero">
     <div>
       <div class="eyebrow">ZENVAULT® BANK & CO.</div>
-      <h1>Zenvault 5.2<br>Payment Control</h1>
-      <p>Admin Studio 6 Beta získává správu již zaúčtovaných plateb, refund statusy, auditní odstranění a rozšířený původ platby včetně Mzdy.</p>
+      <h1>Zenvault 5.3<br>Zenvault × Apple</h1>
+      <p>Nové prémiové Zenvault × Apple promo: jedna announcement karta, Apple služby, oficiální produktové fotografie a tier-based device benefits.</p>
     </div>
-    <div class="badge">5.2.0</div>
+    <div class="badge">5.3.0</div>
   </div>
 
   <div class="stats">
@@ -49,16 +49,16 @@ main{width:min(780px,100%);background:#ffffffdf;border:1px solid #fff;border-rad
   </div>
 
   <div class="features">
-    <div class="feature"><b>Payment Editor</b> · Zaúčtováno / Nezaúčtováno / Vráceno</div>
-    <div class="feature"><b>Refund reasons</b> · důvod + klientská informace + audit</div>
-    <div class="feature"><b>Delete payment</b> · odstranění z historie s korekcí zůstatku</div>
-    <div class="feature"><b>Payment origin</b> · Banka, Mzda, Obchodník, Refundace, Úřad</div>
+    <div class="feature"><b>Single announcement</b> · pouze Zenvault × Apple</div>
+    <div class="feature"><b>Apple services</b> · Music + TV+ na 3 měsíce</div>
+    <div class="feature"><b>Official device imagery</b> · iPhone 18 Pro, Duo, 17 Pro, 17</div>
+    <div class="feature"><b>Tier benefits</b> · vyšší plán = větší Apple výhody</div>
   </div>
 
-  <button class="go" id="go">Vytvořit nový Snack 5.2.0</button>
-  <pre class="status" id="status">Připraveno. Zdroj: oxvaa/zenvault · 5.1.0 payload + 5.1.1 + 5.2.0 upgrady</pre>
+  <button class="go" id="go">Vytvořit nový Snack 5.3.0</button>
+  <pre class="status" id="status">Připraveno. Zdroj: oxvaa/zenvault · 5.1.0 payload + 5.1.1 + 5.2.0 + Zenvault × Apple 5.3.0</pre>
   <a class="open" id="open" target="_blank" rel="noopener">Otevřít nový Snack</a>
-  <div class="note">Importer nemění starší Snack ani lokální profily. Načte aktuální 5.1.0 payload z GitHubu, aplikuje předchozí 5.1.1 hotfix a nový Admin Studio 6 Payment Control upgrade.</div>
+  <div class="note">Importer nemění starší Snack ani lokální profily. Zachová 5.1.1 a 5.2.0 upgrady a nad ně přidá nový Zenvault × Apple experience.</div>
 </main>
 
 <script type="module">
@@ -416,6 +416,111 @@ export const returnedPaymentReason=id=>RETURNED_PAYMENT_REASONS.find(x=>x.id===i
   return payload;
 }
 
+const APPLE_PROMO_CODE="import React,{useMemo,useState} from 'react';\nimport {View,Text,Pressable,Image,useWindowDimensions} from 'react-native';\nimport {LinearGradient} from 'expo-linear-gradient';\nimport {Ionicons} from '@expo/vector-icons';\nimport {tierLabel} from './Membership';\n\nconst TIERS={\n Silver:{rank:0,level:'START',credit:500},\n Gold:{rank:1,level:'ACCESS',credit:1500},\n Platinum:{rank:2,level:'PLUS',credit:2500},\n Core:{rank:2,level:'PLUS',credit:2500},\n Pro:{rank:3,level:'PRIORITY',credit:4000},\n Ultra:{rank:4,level:'PREMIUM',credit:6000},\n 'Ultra MAX':{rank:5,level:'PREMIUM MAX',credit:8000},\n Unlimited:{rank:6,level:'VIP',credit:10000},\n 'Unlimited MAX':{rank:7,level:'VIP MAX',credit:12000},\n Business:{rank:7,level:'BUSINESS+',credit:12000},\n Prestige:{rank:8,level:'PRIVATE',credit:15000},\n 'Prestige MAX':{rank:9,level:'PRIVATE MAX',credit:20000},\n};\n\nconst PRODUCTS=[\n {id:'iphone18pro',name:'iPhone 18 Pro',tag:'PRO FLAGSHIP',multiplier:1,desc:'Nejnovější Pro generace s A20 Pro a profesionální fotosoustavou.',image:'https://www.apple.com/newsroom/images/2026/09/apple-debuts-iphone-18-pro-and-iphone-18-pro-max/article/Apple-iPhone-18-Pro-2up-260909_inline.jpg.large.jpg'},\n {id:'iphoneduo',name:'iPhone Duo',tag:'NEW FORM FACTOR',multiplier:1.25,desc:'První skládací iPhone s velkým vnitřním displejem a čipem A20 Pro.',image:'https://www.apple.com/newsroom/images/2026/09/apple-unveils-iphone-duo/article/Apple-iPhone-Duo-colors-260909_big.jpg.large.jpg'},\n {id:'iphone17pro',name:'iPhone 17 Pro',tag:'PRO',multiplier:.85,desc:'Výkonný Pro model s A19 Pro a trojitou 48Mpx Fusion fotosoustavou.',image:'https://www.apple.com/newsroom/images/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/article/Apple-iPhone-17-Pro-cosmic-orange-250909_inline.jpg.large.jpg'},\n {id:'iphone17',name:'iPhone 17',tag:'ESSENTIAL',multiplier:.7,desc:'Moderní iPhone s ProMotion, A19 a dvojitou 48Mpx Fusion fotosoustavou.',image:'https://www.apple.com/newsroom/images/2025/09/apple-debuts-iphone-17/geo/article/Apple-iPhone-17-hero-250909_inline.jpg.large.jpg'},\n];\n\nconst creditFor=(base,multiplier)=>Math.max(500,Math.round(base*multiplier/500)*500);\nconst czk=n=>new Intl.NumberFormat('cs-CZ',{style:'currency',currency:'CZK',maximumFractionDigits:0}).format(n);\n\nfunction AppleWordmark({kind='apple',dark=false}){\n const color=dark?'#FFFFFF':'#111111';\n if(kind==='music')return <View style={{flexDirection:'row',alignItems:'center',gap:7}}><Ionicons name=\"logo-apple\" size={29} color={color}/><Text style={{fontSize:25,fontWeight:'700',letterSpacing:-1,color}}>Music</Text></View>;\n if(kind==='tv')return <View style={{flexDirection:'row',alignItems:'center',gap:7}}><Ionicons name=\"logo-apple\" size={30} color={color}/><Text style={{fontSize:27,fontWeight:'700',letterSpacing:-1.2,color}}>tv+</Text></View>;\n return <Ionicons name=\"logo-apple\" size={34} color={color}/>;\n}\n\nfunction ProductArtwork({item}){\n const [failed,setFailed]=useState(false);\n if(failed)return <View style={{height:235,alignItems:'center',justifyContent:'center',backgroundColor:'#F5F5F7'}}><Ionicons name=\"phone-portrait-outline\" size={90} color=\"#8E8E93\"/><Text style={{marginTop:12,color:'#6E6E73',fontWeight:'700'}}>{item.name}</Text></View>;\n return <Image accessibilityLabel={'Oficiální Apple obrázek '+item.name} source={{uri:item.image}} resizeMode=\"contain\" onError={()=>setFailed(true)} style={{width:'100%',height:235,backgroundColor:'#F5F5F7'}}/>;\n}\n\nexport default function ApplePromo({u,ui,onBack,onSelect}){\n const {t,Label,Icon,Button,Panel}=ui;\n const {width}=useWindowDimensions();\n const plan=TIERS[u.tier]||TIERS.Silver;\n const serviceSlots=plan.rank>=3?2:plan.rank>=1?1:0;\n const selected=u.applePromoSelections||[];\n const selectedServices=selected.filter(x=>x.kind==='service');\n const has=id=>selected.some(x=>x.id===id);\n const canPickService=id=>plan.rank>0&&(has(id)||selectedServices.length<serviceSlots);\n const productWidth=width>=760?'48.5%':'100%';\n\n const ServiceCard=({id,kind,title,subtitle})=>{\n  const eligible=plan.rank>0;\n  const chosen=has(id);\n  const enabled=canPickService(id);\n  return <View style={{flex:1,minWidth:width>=620?250:'100%',backgroundColor:'#FFFFFF',borderRadius:28,padding:20,borderWidth:1,borderColor:'#E7E7EA'}}>\n   <View style={{height:64,justifyContent:'center'}}><AppleWordmark kind={kind}/></View>\n   <Text style={{fontSize:25,fontWeight:'850',letterSpacing:-.9,color:'#111111',marginTop:10}}>{title}</Text>\n   <Text style={{fontSize:13,lineHeight:20,color:'#6E6E73',marginTop:8}}>{subtitle}</Text>\n   <View style={{marginTop:18,paddingVertical:8,paddingHorizontal:11,borderRadius:14,alignSelf:'flex-start',backgroundColor:eligible?'#EAF8F0':'#F2F2F4'}}>\n    <Text style={{fontSize:10,fontWeight:'850',letterSpacing:.8,color:eligible?'#137A46':'#77777D'}}>{eligible?'3 MĚSÍCE ZDARMA':'SILVER · NEDOSTUPNÉ'}</Text>\n   </View>\n   <Pressable disabled={!enabled||!eligible} onPress={()=>onSelect({id,kind:'service',title})} style={({pressed})=>({marginTop:19,minHeight:50,borderRadius:17,alignItems:'center',justifyContent:'center',backgroundColor:chosen?'#E8F7EE':eligible&&enabled?'#111111':'#ECECEF',opacity:pressed?.78:1})}>\n    <Text style={{fontSize:13,fontWeight:'850',color:chosen?'#137A46':eligible&&enabled?'#FFFFFF':'#8B8B90'}}>{chosen?'Vybráno ✓':!eligible?'Vyžaduje Gold nebo vyšší':!enabled?'Limit online benefitů využit':'Vybrat benefit'}</Text>\n   </Pressable>\n  </View>;\n };\n\n return <View>\n  <Pressable accessibilityRole=\"button\" accessibilityLabel=\"Zpět\" onPress={onBack} style={{flexDirection:'row',alignItems:'center',gap:7,alignSelf:'flex-start',paddingVertical:9,marginBottom:14}}><Icon name=\"chevron-back\" size={20} color={t.accent}/><Label style={{color:t.accent,fontWeight:'700'}}>Zpět</Label></Pressable>\n\n  <LinearGradient colors={['#0B0B0E','#1A1A20']} style={{borderRadius:34,padding:26,overflow:'hidden'}}>\n   <View style={{position:'absolute',right:-45,top:-45,width:190,height:190,borderRadius:100,backgroundColor:'#FFFFFF08'}}/>\n   <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>\n    <View style={{flexDirection:'row',alignItems:'center',gap:9}}><Text style={{fontSize:21,fontWeight:'900',letterSpacing:-.7,color:'#FFFFFF'}}>zenvault®</Text><Text style={{fontSize:17,color:'#8E8E93'}}>×</Text><AppleWordmark dark/></View>\n    <View style={{paddingVertical:7,paddingHorizontal:10,borderRadius:12,backgroundColor:'#FFFFFF13'}}><Text style={{color:'#FFFFFF',fontSize:9,fontWeight:'900',letterSpacing:1.3}}>APPLE BENEFITS</Text></View>\n   </View>\n   <Text style={{fontSize:39,lineHeight:42,fontWeight:'900',letterSpacing:-1.7,color:'#FFFFFF',marginTop:34}}>More Apple.{'\\n'}More Zenvault.</Text>\n   <Text style={{fontSize:14,lineHeight:22,color:'#C9C9CE',marginTop:13,maxWidth:560}}>Vyber si digitální Apple služby nebo zařízení. Čím vyšší Zenvault plán, tím větší přístup, více online benefitů a vyšší Zenvault device credit.</Text>\n   <View style={{flexDirection:'row',flexWrap:'wrap',gap:9,marginTop:22}}>\n    <View style={{padding:12,borderRadius:17,backgroundColor:'#FFFFFF10'}}><Text style={{fontSize:9,color:'#AFAFB5',fontWeight:'800'}}>TVŮJ PLÁN</Text><Text style={{fontSize:15,color:'#FFFFFF',fontWeight:'900',marginTop:5}}>{tierLabel(u.tier)}</Text></View>\n    <View style={{padding:12,borderRadius:17,backgroundColor:'#FFFFFF10'}}><Text style={{fontSize:9,color:'#AFAFB5',fontWeight:'800'}}>APPLE LEVEL</Text><Text style={{fontSize:15,color:'#FFFFFF',fontWeight:'900',marginTop:5}}>{plan.level}</Text></View>\n    <View style={{padding:12,borderRadius:17,backgroundColor:'#FFFFFF10'}}><Text style={{fontSize:9,color:'#AFAFB5',fontWeight:'800'}}>DEVICE CREDIT</Text><Text style={{fontSize:15,color:'#FFFFFF',fontWeight:'900',marginTop:5}}>až {czk(Math.round(plan.credit*1.25/500)*500)}</Text></View>\n   </View>\n  </LinearGradient>\n\n  <View style={{marginTop:26,marginBottom:12}}>\n   <Label muted style={{fontSize:10,fontWeight:'900',letterSpacing:1.7}}>ONLINE SERVICES</Label>\n   <Label style={{fontSize:28,fontWeight:'900',letterSpacing:-1,marginTop:6}}>Tři měsíce. Na nás.</Label>\n   <Label muted style={{fontSize:12,lineHeight:20,marginTop:7}}>{plan.rank===0?'Silver nemá nárok na online služby. Upgrade na Gold nebo vyšší je odemkne.':serviceSlots===1?'Tvůj plán odemyká 1 ze 2 online služeb na 3 měsíce zdarma.':'Tvůj plán odemyká obě online služby na 3 měsíce zdarma.'}</Label>\n  </View>\n\n  <View style={{flexDirection:'row',flexWrap:'wrap',gap:12}}>\n   <ServiceCard id=\"apple-music-3m\" kind=\"music\" title=\"Apple Music\" subtitle=\"Hudba bez reklam, prostorový zvuk, lossless audio a přes 100 milionů skladeb.\"/>\n   <ServiceCard id=\"apple-tv-3m\" kind=\"tv\" title=\"Apple TV+\" subtitle=\"Apple Originals, filmy a seriály bez reklam v rámci Apple TV.\"/>\n  </View>\n\n  <View style={{marginTop:32,marginBottom:12}}>\n   <Label muted style={{fontSize:10,fontWeight:'900',letterSpacing:1.7}}>DEVICES</Label>\n   <Label style={{fontSize:28,fontWeight:'900',letterSpacing:-1,marginTop:6}}>Vyber si svůj iPhone.</Label>\n   <Label muted style={{fontSize:12,lineHeight:20,marginTop:7}}>Device credit je Zenvault promo benefit tohoto prototypu. Vyšší plán znamená vyšší maximální kredit a vyšší prioritu žádosti.</Label>\n  </View>\n\n  <View style={{flexDirection:'row',flexWrap:'wrap',gap:12,justifyContent:'space-between'}}>\n   {PRODUCTS.map(item=>{\n    const credit=creditFor(plan.credit,item.multiplier);\n    const chosen=has(item.id);\n    return <View key={item.id} style={{width:productWidth,backgroundColor:'#FFFFFF',borderRadius:29,overflow:'hidden',borderWidth:1,borderColor:'#E7E7EA'}}>\n     <ProductArtwork item={item}/>\n     <View style={{padding:19}}>\n      <Text style={{fontSize:9,fontWeight:'900',letterSpacing:1.2,color:'#77777D'}}>{item.tag}</Text>\n      <Text style={{fontSize:25,fontWeight:'900',letterSpacing:-.9,color:'#111111',marginTop:6}}>{item.name}</Text>\n      <Text style={{fontSize:12,lineHeight:19,color:'#6E6E73',marginTop:7}}>{item.desc}</Text>\n      <View style={{marginTop:16,padding:13,borderRadius:17,backgroundColor:'#F5F5F7'}}>\n       <Text style={{fontSize:9,fontWeight:'850',letterSpacing:.8,color:'#6E6E73'}}>TVŮJ ZENVAULT BENEFIT</Text>\n       <Text style={{fontSize:19,fontWeight:'900',letterSpacing:-.6,color:'#111111',marginTop:5}}>až {czk(credit)} credit</Text>\n       <Text style={{fontSize:10,color:'#8E8E93',marginTop:5}}>Úroveň {plan.level} · podle plánu {tierLabel(u.tier)}</Text>\n      </View>\n      <Pressable onPress={()=>onSelect({id:item.id,kind:'device',title:item.name})} style={({pressed})=>({marginTop:15,minHeight:50,borderRadius:17,alignItems:'center',justifyContent:'center',backgroundColor:chosen?'#E8F7EE':'#111111',opacity:pressed?.8:1})}><Text style={{fontSize:13,fontWeight:'850',color:chosen?'#137A46':'#FFFFFF'}}>{chosen?'Žádost uložena ✓':'Požádat o nabídku'}</Text></Pressable>\n     </View>\n    </View>;\n   })}\n  </View>\n\n  <Panel style={{marginTop:28}}>\n   <View style={{flexDirection:'row',gap:12,alignItems:'flex-start'}}><View style={{width:40,height:40,borderRadius:15,backgroundColor:t.soft,alignItems:'center',justifyContent:'center'}}><Icon name=\"information-circle-outline\" color={t.accent}/></View><View style={{flex:1}}><Label style={{fontWeight:'850'}}>Důležité informace</Label><Label muted style={{fontSize:11,lineHeight:18,marginTop:6}}>Zenvault × Apple je promo koncept v lokálním prototypu Zenvaultu. Výběr benefitu neaktivuje skutečné předplatné ani objednávku a nepředstavuje potvrzení skutečného partnerství s Apple. Obrázky zařízení jsou načítané z oficiálního Apple Newsroomu.</Label></View></View>\n  </Panel>\n\n  <Pressable onPress={onBack} style={{alignItems:'center',paddingVertical:30}}><Text style={{fontSize:20,fontWeight:'900',letterSpacing:-1,color:t.text}}>zenvault® × </Text><Label muted style={{fontSize:9,letterSpacing:2,marginTop:5}}>BENEFITS, REIMAGINED</Label></Pressable>\n </View>;\n}\n";
+const ANNOUNCEMENT_CODE="import React from 'react';\nimport {View,Text,Pressable,Modal,useWindowDimensions} from 'react-native';\nimport {LinearGradient} from 'expo-linear-gradient';\nimport {Ionicons} from '@expo/vector-icons';\nimport {useSafeAreaInsets} from 'react-native-safe-area-context';\nimport {useReducedMotion} from './Motion';\nimport {tierLabel} from './Membership';\n\nexport default function MembershipAnnouncement({visible,onClose,onExplore,u,mono=false}){\n const reduced=useReducedMotion(),insets=useSafeAreaInsets(),{width}=useWindowDimensions();\n if(u.parentId||!visible)return null;\n const cardWidth=Math.min(width-36,430);\n const ink=mono?'#111111':'#FFFFFF',muted=mono?'#606060':'#C9C9CE';\n return <Modal visible transparent animationType={reduced?'none':'fade'} onRequestClose={onClose}>\n  <View style={{flex:1,justifyContent:'center',alignItems:'center',backgroundColor:'#030712C9',paddingTop:insets.top+12,paddingBottom:insets.bottom+12}}>\n   <View testID=\"membership-announcement\" accessibilityViewIsModal style={{width:cardWidth,backgroundColor:mono?'#FFFFFF':'#0E0E12',borderRadius:31,overflow:'hidden'}}>\n    <View style={{height:65,paddingLeft:22,paddingRight:12,flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>\n     <Text style={{fontSize:24,fontWeight:'800',letterSpacing:-1.2,color:ink}}>zenvault®</Text>\n     <Pressable accessibilityRole=\"button\" accessibilityLabel=\"Zavřít oznámení\" onPress={onClose} style={{height:44,width:44,alignItems:'center',justifyContent:'center'}}><Ionicons name=\"close-outline\" size={26} color={ink}/></Pressable>\n    </View>\n    <View style={{paddingHorizontal:17,paddingBottom:10}}>\n     <LinearGradient colors={mono?['#F6F6F6','#FFFFFF']:['#17171C','#050506']} style={{padding:23,borderRadius:25,borderWidth:1,borderColor:mono?'#E6E6E6':'#FFFFFF14',overflow:'hidden'}}>\n      <View style={{position:'absolute',right:-35,top:-45,width:165,height:165,borderRadius:90,backgroundColor:mono?'#00000005':'#FFFFFF07'}}/>\n      <Text style={{fontSize:9,fontWeight:'900',letterSpacing:1.7,color:muted}}>ZENVAULT® × APPLE</Text>\n      <View style={{height:112,alignItems:'center',justifyContent:'center',flexDirection:'row',gap:13}}>\n       <Text style={{fontSize:42,fontWeight:'900',letterSpacing:-2,color:ink}}>Z</Text>\n       <Text style={{fontSize:22,color:muted}}>×</Text>\n       <Ionicons accessibilityLabel=\"Apple\" name=\"logo-apple\" size={70} color={ink}/>\n      </View>\n      <Text accessibilityRole=\"header\" style={{fontSize:34,lineHeight:38,fontWeight:'900',letterSpacing:-1.2,color:ink}}>More Apple.{'\\n'}More for you.</Text>\n      <Text style={{fontSize:14,lineHeight:21,color:muted,marginTop:12}}>Apple Music a Apple TV+ na 3 měsíce zdarma pro vybrané plány. K tomu device offers na nejnovější iPhony.</Text>\n      <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',marginTop:18,paddingTop:16,borderTopWidth:1,borderTopColor:mono?'#E5E5E5':'#FFFFFF12'}}>\n       <Text style={{fontSize:10,fontWeight:'800',color:muted}}>TVŮJ PLÁN</Text>\n       <Text style={{fontSize:12,fontWeight:'900',color:ink}}>{tierLabel(u.tier)}</Text>\n      </View>\n     </LinearGradient>\n    </View>\n    <View style={{paddingHorizontal:21,paddingBottom:12}}>\n     <Pressable accessibilityRole=\"button\" accessibilityLabel=\"Otevřít Zenvault x Apple\" onPress={()=>onExplore('apple')} style={({pressed})=>({minHeight:51,borderRadius:17,alignItems:'center',justifyContent:'center',backgroundColor:mono?'#000000':'#FFFFFF',opacity:pressed?.8:1})}><Text style={{fontSize:13,fontWeight:'900',color:mono?'#FFFFFF':'#111111'}}>Otevřít Apple nabídku ↗</Text></Pressable>\n     <Pressable accessibilityRole=\"button\" accessibilityLabel=\"Pokračovat na přehled\" onPress={onClose} style={{minHeight:44,justifyContent:'center',alignItems:'center'}}><Text style={{fontSize:12,color:muted}}>Pokračovat na přehled</Text></Pressable>\n    </View>\n   </View>\n  </View>\n </Modal>;\n}\n";
+
+function applyApplePromo(payload){
+  const code=payload?.code;
+  if(!code?.['App.js']?.contents||!code?.['Home4.js']?.contents||!code?.['MembershipAnnouncement.js']?.contents){
+    throw new Error('Payload neobsahuje moduly potřebné pro Zenvault × Apple.');
+  }
+
+  const replaceSegment=(source,startMarker,endMarker,replacement,label)=>{
+    const start=source.indexOf(startMarker);
+    const end=source.indexOf(endMarker,start+startMarker.length);
+    if(start<0||end<0)throw new Error(label+' — segment nebyl nalezen.');
+    return source.slice(0,start)+replacement+source.slice(end);
+  };
+
+  let app=code['App.js'].contents;
+  let home4=code['Home4.js'].contents;
+
+  app=replaceOnce(
+    app,
+    "import ServiceLogo from './ServiceLogo';",
+    '',
+    'odebrání starého Netflix/HBO promo importu'
+  );
+
+  app=replaceOnce(
+    app,
+    "import MembershipAnnouncement from './MembershipAnnouncement';",
+    "import MembershipAnnouncement from './MembershipAnnouncement';\nimport ApplePromo from './ApplePromo';",
+    'ApplePromo import'
+  );
+
+  app=replaceOnce(
+    app,
+    "useEffect(()=>{if((tab!=='Promo'&&!tab.startsWith('v3:'))||Platform.OS!=='android')return;",
+    "useEffect(()=>{if((tab!=='ApplePromo'&&!tab.startsWith('v3:'))||Platform.OS!=='android')return;",
+    'Android back route'
+  );
+
+  app=replaceOnce(
+    app,
+    "<PromoBubble ui={ui3} onPress={()=>setTab('Promo')}/>",
+    "<PromoBubble ui={ui3} onPress={()=>setTab('ApplePromo')}/>",
+    'Home promo bubble route'
+  );
+
+  app=replaceSegment(
+    app,
+    " const promo=()=> <>",
+    " const payments=()=> <>",
+    " const applePromo=()=> <ApplePromo u={u} ui={ui3} onBack={()=>setTab('Přehled')} onSelect={offer=>{editUser(x=>({...x,applePromoSelections:[...(x.applePromoSelections||[]).filter(v=>v.id!==offer.id),{id:offer.id,kind:offer.kind,title:offer.title,date:today()}]}));setToast(offer.kind==='service'?'Apple benefit byl uložen k aktivaci.':'Žádost o Apple zařízení byla uložena.');}}/>;\n",
+    'odebrání Netflix/HBO promo page'
+  );
+
+  app=replaceOnce(
+    app,
+    "tab==='Promo'?promo()",
+    "tab==='ApplePromo'?applePromo()",
+    'Apple promo route'
+  );
+
+  app=app.split("(tab==='Promo'&&name==='Přehled')").join("(tab==='ApplePromo'&&name==='Přehled')");
+
+  app=replaceOnce(
+    app,
+    "onExplore={id=>{setHomeAnnouncement(false);if(id==='prestige')open('tiers');else if(id==='promo')setTab('Promo');else goV3('cardpay');}}",
+    "onExplore={()=>{setHomeAnnouncement(false);setTab('ApplePromo');}}",
+    'announcement action'
+  );
+
+  const oldBubbleStart="export function PromoBubble({ui,onPress}){";
+  const oldBubbleEnd="export default function Home4";
+  home4=replaceSegment(
+    home4,
+    oldBubbleStart,
+    oldBubbleEnd,
+`export function PromoBubble({ui,onPress}){
+ const {t,Label,Icon}=ui;
+ return <View style={{borderRadius:23,shadowColor:t.theme.accent,shadowOpacity:.09,shadowRadius:16,shadowOffset:{width:0,height:6}}}>
+  <LinearGradient colors={t.featureGradient} start={{x:0,y:0}} end={{x:1,y:1}} style={{borderRadius:23,padding:14,borderWidth:1,borderColor:t.border,flexDirection:'row',alignItems:'center',gap:11}}>
+   <View style={{height:39,width:39,alignItems:'center',justifyContent:'center',borderRadius:14,backgroundColor:t.soft}}><Icon name="logo-apple" size={22} color={t.accent}/></View>
+   <View style={{flex:1}}><Label style={{fontSize:12,lineHeight:17,fontWeight:'800'}}>Zenvault × Apple · nové výhody</Label><Pressable accessibilityRole="button" accessibilityLabel="Otevřít Apple nabídku" onPress={onPress} style={{minHeight:28,justifyContent:'center'}}><Label style={{fontSize:11,fontWeight:'700',color:t.accent}}>Apple Music, TV+ a iPhone offers  ↗</Label></Pressable></View>
+   <Icon name="sparkles" size={16} color={t.accent}/>
+  </LinearGradient>
+ </View>;
+}
+`,
+    'PromoBubble replacement'
+  );
+
+  code['ApplePromo.js']={type:'CODE',contents:APPLE_PROMO_CODE};
+  code['MembershipAnnouncement.js'].contents=ANNOUNCEMENT_CODE;
+  code['App.js'].contents=app;
+  code['Home4.js'].contents=home4;
+
+  payload.manifest={
+    ...(payload.manifest||{}),
+    name:'Zenvault Bank & Co. 5.3.0',
+    description:'Zenvault 5.3.0 — Zenvault × Apple benefits, single announcement and tier-based Apple promo experience.'
+  };
+
+  return payload;
+}
+
 go.onclick=async()=>{
   go.disabled=true;
   openLink.style.display='none';
@@ -431,8 +536,9 @@ go.onclick=async()=>{
 
     let payload=await response.json();
 
-    setStatus('2/5 · Aplikuji 5.1.1 + Payment Control 5.2.0…');
+    setStatus('2/5 · Aplikuji 5.1.1 + 5.2.0 + Zenvault × Apple 5.3.0…');
     payload=apply52(payload);
+    payload=applyApplePromo(payload);
 
     const files=payload.code||{};
     const codeCount=Object.values(files).filter(x=>x?.type==='CODE').length;
@@ -462,7 +568,7 @@ go.onclick=async()=>{
       online:false
     });
 
-    setStatus('5/5 · Ukládám nový Snack 5.2.0 na Expo…');
+    setStatus('5/5 · Ukládám nový Snack 5.3.0 na Expo…');
 
     const result=await snack.saveAsync({ignoreUser:true,isDraft:false});
     const state=await snack.getStateAsync();
@@ -472,12 +578,12 @@ go.onclick=async()=>{
 
     setStatus(
 `HOTOVO ✅
-Zenvault 5.2.0
+Zenvault 5.3.0
 Snack ID: ${id}
 Files: ${Object.keys(state.files||{}).length}
 Dependencies: ${Object.keys(state.dependencies||{}).length}
 
-Admin Studio 6 Payment Control je aktivní.`,
+Zenvault × Apple promo je aktivní. Admin Studio 6 Payment Control zůstává zachovaný.`,
       'ok'
     );
 
