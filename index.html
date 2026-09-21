@@ -14,44 +14,135 @@ main{width:min(760px,100%);background:#ffffffd9;border:1px solid #fff;border-rad
 </head>
 <body>
 <main>
-  <div class="hero"><div><div class="eyebrow">ZENVAULT® BANK & CO.</div><h1>Zenvault 5<br>Your Money OS</h1><p>Vytvoří nový kompletní multi-file Expo Snack 5.1.0. Zachová strukturu modulů, 58 card/brand assets a resolved dependencies.</p></div><div class="badge">5.1.0</div></div>
-  <div class="stats"><div class="stat"><strong>44</strong><span>CODE FILES</span></div><div class="stat"><strong>58</strong><span>ASSETS</span></div><div class="stat"><strong>7</strong><span>DEPENDENCIES</span></div></div>
-  <div class="features"><div class="feature"><b>Home 5</b> · Financial Command Center</div><div class="feature"><b>Intelligence</b> · forecast + context</div><div class="feature"><b>Command</b> · universal search/actions</div><div class="feature"><b>Money OS</b> · Cards, Vaults, Purchase, Security, Plans, Admin</div></div>
+  <div class="hero">
+    <div>
+      <div class="eyebrow">ZENVAULT® BANK & CO.</div>
+      <h1>Zenvault 5<br>Your Money OS</h1>
+      <p>Vytvoří nový kompletní multi-file Expo Snack 5.1.0. Zachová strukturu modulů, card/brand assets a resolved dependencies.</p>
+    </div>
+    <div class="badge">5.1.0</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><strong id="codeStat">46</strong><span>CODE FILES</span></div>
+    <div class="stat"><strong id="assetStat">58</strong><span>ASSETS</span></div>
+    <div class="stat"><strong id="depStat">7</strong><span>DEPENDENCIES</span></div>
+  </div>
+
+  <div class="features">
+    <div class="feature"><b>Auth 5</b> · Zenvault 5 experience</div>
+    <div class="feature"><b>Zenvault 5 Themes</b> · Bright Red collection</div>
+    <div class="feature"><b>Admin Studio 6 Beta</b> · expanded controls + audit</div>
+    <div class="feature"><b>Money OS</b> · Cards, Vaults, Purchase, Security, Plans</div>
+  </div>
+
   <button class="go" id="go">Vytvořit nový Snack 5.1.0</button>
   <pre class="status" id="status">Připraveno. Zdroj: oxvaa/zenvault · main</pre>
   <a class="open" id="open" target="_blank" rel="noopener">Otevřít nový Snack</a>
-  <div class="note">Importer vytváří nový Snack a nemění tvůj starší 4.x Snack. Lokální bankovní data nejsou součástí payloadu ani GitHub repozitáře.</div>
+  <div class="note">Importer vytváří nový Snack a nemění tvůj starší Snack. Lokální bankovní data nejsou součástí payloadu ani GitHub repozitáře.</div>
 </main>
+
 <script type="module">
-const statusEl=document.querySelector('#status'),go=document.querySelector('#go'),open=document.querySelector('#open');
-const setStatus=(text,kind='')=>{statusEl.textContent=text;statusEl.className='status '+kind};
+const statusEl=document.querySelector('#status');
+const go=document.querySelector('#go');
+const open=document.querySelector('#open');
+const codeStat=document.querySelector('#codeStat');
+const assetStat=document.querySelector('#assetStat');
+const depStat=document.querySelector('#depStat');
+
+const setStatus=(text,kind='')=>{
+  statusEl.textContent=text;
+  statusEl.className='status '+kind;
+};
+
 async function loadSdk(){
-  try{return await import('https://cdn.jsdelivr.net/npm/snack-sdk@6.6.2/+esm')}
-  catch(first){return await import('https://esm.sh/snack-sdk@6.6.2?bundle')}
+  try{
+    return await import('https://cdn.jsdelivr.net/npm/snack-sdk@6.6.2/+esm');
+  }catch(first){
+    return await import('https://esm.sh/snack-sdk@6.6.2?bundle');
+  }
 }
+
 go.onclick=async()=>{
-  go.disabled=true;open.style.display='none';
+  go.disabled=true;
+  open.style.display='none';
+
   try{
     setStatus('1/4 · Načítám payload Zenvault 5.1.0…');
-    const response=await fetch('https://raw.githubusercontent.com/oxvaa/zenvault/main/snack-payload-5.1.0.json',{cache:'no-store'});
-    if(!response.ok)throw new Error('Payload HTTP '+response.status+' — nejdřív nahraj snack-payload-5.1.0.json do rootu repozitáře.');
+
+    const response=await fetch(
+      'https://raw.githubusercontent.com/oxvaa/zenvault/main/snack-payload-5.1.0.json',
+      {cache:'no-store'}
+    );
+
+    if(!response.ok){
+      throw new Error('Payload HTTP '+response.status+' — zkontroluj snack-payload-5.1.0.json v rootu repozitáře.');
+    }
+
     const payload=await response.json();
-    const code=Object.values(payload.code||{}).filter(x=>x.type==='CODE').length;
-    const assets=Object.values(payload.code||{}).filter(x=>x.type==='ASSET').length;
-    if(code!==44||assets!==58)throw new Error(`Neočekávaný payload: ${code} code / ${assets} assets.`);
-    setStatus('2/4 · Načítám Expo Snack SDK…');
+    const files=payload.code||{};
+    const code=Object.values(files).filter(x=>x?.type==='CODE').length;
+    const assets=Object.values(files).filter(x=>x?.type==='ASSET').length;
+    const dependencies=payload.dependencies||payload.manifest?.dependencies||{};
+    const depCount=Object.keys(dependencies).length;
+
+    codeStat.textContent=code;
+    assetStat.textContent=assets;
+    depStat.textContent=depCount;
+
+    // Robust validation: don't fail merely because a future update adds modules.
+    if(!files['App.js']) throw new Error('Payload neobsahuje App.js.');
+    if(code<1) throw new Error('Payload neobsahuje CODE soubory.');
+    if(assets<1) throw new Error('Payload neobsahuje ASSET soubory.');
+    if(depCount<1) throw new Error('Payload neobsahuje dependencies.');
+
+    setStatus(`Payload OK ✅ · ${code} code / ${assets} assets / ${depCount} dependencies\n2/4 · Načítám Expo Snack SDK…`);
+
     const {Snack}=await loadSdk();
-    setStatus('3/4 · Sestavuji 102 souborů a 7 dependencies…');
-    const snack=new Snack({name:payload.manifest.name,description:payload.manifest.description,sdkVersion:payload.manifest.sdkVersion,files:payload.code,dependencies:payload.dependencies,online:false});
+
+    setStatus(`3/4 · Sestavuji ${code+assets} souborů a ${depCount} dependencies…`);
+
+    const snack=new Snack({
+      name:payload.manifest?.name||'Zenvault Bank & Co. 5.1.0',
+      description:payload.manifest?.description||'Zenvault 5 — Your Money OS.',
+      sdkVersion:payload.manifest?.sdkVersion||'54.0.0',
+      files,
+      dependencies,
+      online:false
+    });
+
     setStatus('4/4 · Ukládám nový Snack na Expo…');
-    const result=await snack.saveAsync({ignoreUser:true,isDraft:false});
+
+    const result=await snack.saveAsync({
+      ignoreUser:true,
+      isDraft:false
+    });
+
     const state=await snack.getStateAsync();
     const id=result?.id||result?.snackId||result?.accountSnackId||state?.id;
-    if(!id)throw new Error('Expo Snack se uložil bez rozpoznatelného ID. Zkus akci znovu.');
-    setStatus(`HOTOVO ✅\nSnack ID: ${id}\nFiles: ${Object.keys(state.files||{}).length}\nDependencies: ${Object.keys(state.dependencies||{}).length}`,'ok');
-    open.href='https://snack.expo.dev/'+id;open.style.display='block';
-  }catch(e){setStatus('IMPORT SE NEPODAŘIL ❌\n'+(e?.message||String(e))+'\n\nOvěř, že je repozitář public, Pages běží přes HTTPS a payload 5.1.0 je v rootu.','error')}
-  finally{go.disabled=false}
+
+    if(!id){
+      throw new Error('Expo Snack se uložil bez rozpoznatelného ID. Zkus akci znovu.');
+    }
+
+    setStatus(
+      `HOTOVO ✅\nSnack ID: ${id}\nFiles: ${Object.keys(state.files||{}).length}\nDependencies: ${Object.keys(state.dependencies||{}).length}`,
+      'ok'
+    );
+
+    open.href='https://snack.expo.dev/'+id;
+    open.style.display='block';
+
+  }catch(e){
+    setStatus(
+      'IMPORT SE NEPODAŘIL ❌\n'+
+      (e?.message||String(e))+
+      '\n\nRepozitář musí být public, GitHub Pages musí běžet přes HTTPS a payload 5.1.0 musí být v rootu.',
+      'error'
+    );
+  }finally{
+    go.disabled=false;
+  }
 };
 </script>
 </body>
